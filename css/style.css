@@ -23,3 +23,7 @@ footer svg {
 .card-title {
     margin: 10px;
 }
+
+.hidden {
+    display: none;
+}

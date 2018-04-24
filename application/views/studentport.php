@@ -23,6 +23,7 @@
                 <th scope="col">Favorite</th>
                 <th scope="col">Name</th>
                 <th scope="col">Surame</th>
+                <th scope="col">Course</th>
                 <th scope="col">Level</th>
                 <th scope="col">Link</th>
             </tr>
@@ -32,10 +33,11 @@
                 <th scope="row">
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </th>
-                <td> <i class="far fa-star"></i> <i class="fas fa-star yell"></i></td>
+                <td> <button type="button" name="button"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
                 <td>Mark</td>
                 <td>Marks</td>
-                <td>Otto</td>
+                <td>Course Name</td>
+                <td>2</td>
                 <td>@mdo</td>
             </tr>
         </tbody>
