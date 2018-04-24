@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 //TO ENTER URL OF WEBSITE
-$config['base_url'] = 'icabackend.local/';
+$config['base_url'] = 'http://icabackend.local/';
 
 /*
 |--------------------------------------------------------------------------
