@@ -2,7 +2,7 @@
     <h5 class="card-title">Students</h5>
 
     <?php foreach ($links as $link): ?>
-        <a href="<?=site_url($link['link'])?>" class="btn btn-link btn-sm mr-1">
+        <a href="<?=site_url($link['link'])?>" class="btn btn-link btn-sm mr-1 mt-2">
             <?php if ($link['icon'] != null): ?>
                 <i class="fas <?=$link['icon']?> fa-sm"></i>
             <?php endif; ?>
