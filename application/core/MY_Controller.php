@@ -40,9 +40,26 @@ class MY_Controller extends CI_Controller {
         );
     }
 
-    
+    function edit_build($pages = NULL, $data = NULL){
 
+      $start = array(
+        'edit' => $this-> edit_links()
+      );
 
-}
+      $this->load->view('templates/start', $start);
+      $this->load->view($pages, $data);
+      $this->load->view('templates/end');
+
+    }
+
+      function edit_links(){
+          return array(
+              'Plus'                      => '/studentportadd.php',
+              'Delete'                    => '/#',
+              'Update'                    => '/studentportupdate',
+          );
+      }
+
+    }
 
 ?>
