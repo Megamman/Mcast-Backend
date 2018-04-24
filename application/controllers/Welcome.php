@@ -30,10 +30,10 @@ class Welcome extends MY_Controller {
 	public function index(){
 
 		//this command loads a view from the views folder
-		$this->build('studentprot');
+		$this->build('studentport');
 	}
 
-	public function studentprot(){
+	public function studentport(){
 
 		//this command loads a view from the views folder
 		$this->build('studentprot');
@@ -67,6 +67,18 @@ class Welcome extends MY_Controller {
 
 		//this command loads a view from the views folder
 		$this->build('news');
+	}
+
+	public function studentportadd(){
+
+		//this command loads a view from the views folder
+		$this->build('studentportadd');
+	}
+
+	public function studentportupdate(){
+
+		//this command loads a view from the views folder
+		$this->build('studentportupdate');
 	}
 
 
