@@ -30,13 +30,13 @@ class Welcome extends MY_Controller {
 	public function index(){
 
 		//this command loads a view from the views folder
-		$this->build('studentprof');
+		$this->build('studentprot');
 	}
 
-	public function studentprof(){
+	public function studentprot(){
 
 		//this command loads a view from the views folder
-		$this->build('studentprof');
+		$this->build('studentprot');
 	}
 
 	public function studentres(){
