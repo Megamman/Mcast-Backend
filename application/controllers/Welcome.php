@@ -36,7 +36,7 @@ class Welcome extends MY_Controller {
 	public function studentport(){
 
 		//this command loads a view from the views folder
-		$this->build('studentprot');
+		$this->build('studentport');
 	}
 
 	public function studentres(){
