@@ -24,6 +24,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Surame</th>
                 <th scope="col">Level</th>
+                <th scope="col">Course</th>
                 <th scope="col">Link</th>
             </tr>
         </thead>
@@ -35,7 +36,8 @@
                 <td> <i class="far fa-star"></i> <i class="fas fa-star yell"></i></td>
                 <td>Mark</td>
                 <td>Marks</td>
-                <td>Otto</td>
+                <td>2</td>
+                <td>Course title</td>
                 <td>@mdo</td>
             </tr>
         </tbody>
