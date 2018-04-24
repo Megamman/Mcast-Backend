@@ -57,5 +57,17 @@ class Welcome extends MY_Controller {
 		$this->build('timetables');
 	}
 
+	public function lectures(){
+
+		//this command loads a view from the views folder
+		$this->build('lectures');
+	}
+
+	public function news(){
+
+		//this command loads a view from the views folder
+		$this->build('news');
+	}
+
 
 }
