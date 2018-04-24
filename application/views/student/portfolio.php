@@ -1,14 +1,18 @@
 <div class="container td-margin d-flex flex-row mt-4 mb-3">
     <h5 class="card-title">Students</h5>
-    <a href="studentportadd.php" class="btn btn-link btn-sm mr-1">
-        <i class="fas fa-plus fa-sm"></i>
-    </a>
-    <a href="#" class="btn btn-link btn-sm mr-1">
-        <i class="fas fa-trash-alt"></i>
-    </a>
-    <a href="studentportupdate.php" class="btn btn-link btn-sm mr-1">
-        Update
-    </a>
+
+    <?php foreach ($links as $link): ?>
+        <a href="<?=site_url($link['link'])?>" class="btn btn-link btn-sm mr-1">
+            <?php if ($link['icon'] != null): ?>
+                <i class="fas <?=$link['icon']?> fa-sm"></i>
+            <?php endif; ?>
+
+            <?php if ($link['caption'] != null): ?>
+                <?=$link['caption']?>
+            <?php endif; ?>
+        </a>
+    <?php endforeach; ?>
+
     <form class="form-inline my-2 my-lg-0 ml-auto">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

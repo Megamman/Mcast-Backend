@@ -31,35 +31,15 @@ class MY_Controller extends CI_Controller {
     //use an associative array for the navigation
     function nav_links(){
         return array(
-            'Student Profile'                      => 'welcome',
-            'Student Resources'                    => 'welcome/studentres',
-            'Forms'                                => 'welcome/forms',
-            'Timetables'                           => 'welcome/timetables',
-            'Lectures'                             => 'welcome/lectures',
-            'News'                                 => 'welcome/news'
+            'Student Profile'                      => 'students',
+            'Student Resources'                    => 'students/res',
+            'Forms'                                => 'forms',
+            'Timetables'                           => 'timetables',
+            'Lectures'                             => 'lectures',
+            'News'                                 => 'news'
         );
     }
+}
 
-    function edit_build($pages = NULL, $data = NULL){
-
-      $start = array(
-        'edit' => $this-> edit_links()
-      );
-
-      $this->load->view('templates/start', $start);
-      $this->load->view($pages, $data);
-      $this->load->view('templates/end');
-
-    }
-
-      function edit_links(){
-          return array(
-              'Plus'                      => '/studentportadd.php',
-              'Delete'                    => '/#',
-              'Update'                    => '/studentportupdate',
-          );
-      }
-
-    }
 
 ?>

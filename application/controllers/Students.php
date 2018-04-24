@@ -11,46 +11,12 @@ class Students extends MY_Controller {
 		parent::__construct();
 	}
 
-	public function index(){
-
-		//this command loads a view from the views folder
-		$this->build('studentport');
-	}
-
-	public function portfolio(){
-
-		//this command loads a view from the views folder
-		$this->build('studentport');
-	}
-
-	public function resources(){
-
-		//this command loads a view from the views folder
-		$this->build('studentres');
-	}
-
-	public function forms(){
-
-		//this command loads a view from the views folder
-		$this->build('forms');
-	}
-
-	public function timetables(){
-
-		//this command loads a view from the views folder
-		$this->build('timetables');
-	}
-
-	public function lectures(){
-
-		//this command loads a view from the views folder
-		$this->build('lectures');
-	}
-
-	public function news(){
-
-		//this command loads a view from the views folder
-		$this->build('news');
+	function index()
+	{
+		$data = array(
+			'links'		=> $this->edit_links()
+		);
+		$this->build('student/portfolio', $data);
 	}
 
 	public function studentportadd(){
@@ -65,5 +31,24 @@ class Students extends MY_Controller {
 		$this->build('studentportupdate');
 	}
 
+	private function edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'students/portfolio'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'students/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'students/update'
+			)
+		);
+	}
 
 }
