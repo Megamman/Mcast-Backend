@@ -3,28 +3,31 @@
 </div>
 
 <div class="container">
-    <table class="table table-sm ">
-        <thead>
-            <tr class="table-active ">
-                <th scope="col">Selected</th>
-                <th scope="col">Favorite</th>
-                <th scope="col">Name</th>
-                <th scope="col">Surame</th>
-                <th scope="col">Level</th>
-                <th scope="col">Link</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </th>
-                <td> <i class="far fa-star"></i> <i class="fas fa-star yell"></i></td>
-                <td>Mark</td>
-                <td>Marks</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-        </tbody>
-    </table>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputID">ID no.</label>
+            <input type="ID" class="form-control" id="exampleInputID" aria-describedby="idHelp" placeholder="Enter Student ID no.">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName">Name</label>
+            <input type="Name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter Student Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputSurname">Surname</label>
+            <input type="Surname" class="form-control" id="exampleInputSurname" aria-describedby="surnameHelp" placeholder="Enter Student Surname">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCourse">Course</label>
+            <input type="Course" class="form-control" id="exampleInputCourse" aria-describedby="courseHelp" placeholder="Enter Course Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputLevel">Level</label>
+            <input type="Level" class="form-control" id="exampleInputLevel" aria-describedby="levelHelp" placeholder="Enter Course Level">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputStuLink">Links</label>
+            <input type="Link" class="form-control" id="exampleInputStuLink" aria-describedby="linkHelp" placeholder="Enter Student Links">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>

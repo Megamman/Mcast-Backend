@@ -20,7 +20,7 @@
         <thead>
             <tr class="table-active">
                 <th scope="col">Selected</th>
-                <th scope="col">Form</th>
+                <th scope="col">Form Name</th>
                 <th scope="col">File</th>
             </tr>
         </thead>
