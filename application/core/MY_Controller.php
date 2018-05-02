@@ -39,6 +39,26 @@ class MY_Controller extends CI_Controller {
             'News'                                 => 'students/news'
         );
     }
+
+    protected function edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'students/add'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'students/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'students/update'
+			)
+		);
+	}
 }
 
 

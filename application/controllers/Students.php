@@ -11,6 +11,11 @@ class Students extends MY_Controller {
 		parent::__construct();
 	}
 
+	function index()
+	{
+		$this->portfolio();
+	}
+
 	function portfolio()
 	{
 		$data = array(
@@ -19,7 +24,7 @@ class Students extends MY_Controller {
 		$this->build('student/portfolio', $data);
 	}
 
-	public function studentportadd()
+	public function add()
 	{
 		//this command loads a view from the views folder
 		$this->build('student/add');
@@ -33,24 +38,6 @@ class Students extends MY_Controller {
 
 
 
-	private function edit_links(){
-		return array(
-			array(
-				'icon'		=> 'fa-plus',
-				'caption'	=> NULL,
-				'link'		=> 'students/add'
-			),
-			array(
-				'icon'		=> 'fa-trash-alt',
-				'caption'	=> NULL,
-				'link'		=> 'students/boop'
-			),
-			array(
-				'icon'		=> NULL,
-				'caption'	=> 'Update',
-				'link'		=> 'students/update'
-			)
-		);
-	}
+
 
 }
