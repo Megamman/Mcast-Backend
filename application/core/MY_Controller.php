@@ -33,10 +33,10 @@ class MY_Controller extends CI_Controller {
         return array(
             'Student Profile'                      => 'students',
             'Student Resources'                    => 'students/res',
-            'Forms'                                => 'forms',
-            'Timetables'                           => 'timetables',
-            'Lectures'                             => 'lectures',
-            'News'                                 => 'news'
+            'Forms'                                => 'students/forms',
+            'Timetables'                           => 'students/timetables',
+            'Lectures'                             => 'students/lectures',
+            'News'                                 => 'students/news'
         );
     }
 }
