@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Students extends MY_Controller {
+class Timetables extends MY_Controller {
 
 	// magic method to load the parent class
 	function __construct()
@@ -13,27 +13,27 @@ class Students extends MY_Controller {
 
 	function index()
 	{
-		$this->portfolio();
+		$this->timetables();
 	}
 
-	function portfolio()
+	function timetables()
 	{
 		$data = array(
-			'links'		=> $this->stud_edit_links()
+			'links'		=> $this->tt_edit_links()
 		);
-		$this->build('student/portfolio', $data);
+		$this->build('timetables\timetables', $data);
 	}
 
 	public function add()
 	{
 		//this command loads a view from the views folder
-		$this->build('student/add');
+		$this->build('timetables/add');
 	}
 
 	public function update(){
 
 		//this command loads a view from the views folder
-		$this->build('student/update');
+		$this->build('timetables/update');
 	}
 
 

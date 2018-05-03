@@ -32,15 +32,15 @@ class MY_Controller extends CI_Controller {
     function nav_links(){
         return array(
             'Student Profile'                      => 'students',
-            'Student Resources'                    => 'students/res',
-            'Forms'                                => 'students/forms',
-            'Timetables'                           => 'students/timetables',
-            'Lectures'                             => 'students/lectures',
-            'News'                                 => 'students/news'
+            'Student Resources'                    => 'resources',
+            'Forms'                                => 'forms',
+            'Timetables'                           => 'timetables',
+            'Lectures'                             => 'lectures',
+            'News'                                 => 'news'
         );
     }
 
-    protected function edit_links(){
+    protected function stud_edit_links(){
 		return array(
 			array(
 				'icon'		=> 'fa-plus',
@@ -56,6 +56,106 @@ class MY_Controller extends CI_Controller {
 				'icon'		=> NULL,
 				'caption'	=> 'Update',
 				'link'		=> 'students/update'
+			)
+		);
+	}
+
+    protected function res_edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'resources/add'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'resources/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'resources/update'
+			)
+		);
+	}
+
+    protected function news_edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'news/add'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'news/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'news/update'
+			)
+		);
+	}
+
+    protected function tt_edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'timetables/add'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'timetables/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'timetables/update'
+			)
+		);
+	}
+
+    protected function lect_edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'lectures/add'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'lectures/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'lectures/update'
+			)
+		);
+	}
+
+    protected function form_edit_links(){
+		return array(
+			array(
+				'icon'		=> 'fa-plus',
+				'caption'	=> NULL,
+				'link'		=> 'forms/add'
+			),
+			array(
+				'icon'		=> 'fa-trash-alt',
+				'caption'	=> NULL,
+				'link'		=> 'forms/boop'
+			),
+			array(
+				'icon'		=> NULL,
+				'caption'	=> 'Update',
+				'link'		=> 'forms/update'
 			)
 		);
 	}

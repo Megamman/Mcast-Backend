@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Students extends MY_Controller {
+class Forms extends MY_Controller {
 
 	// magic method to load the parent class
 	function __construct()
@@ -13,27 +13,27 @@ class Students extends MY_Controller {
 
 	function index()
 	{
-		$this->portfolio();
+		$this->forms();
 	}
 
-	function portfolio()
+	function forms()
 	{
 		$data = array(
-			'links'		=> $this->stud_edit_links()
+			'links'		=> $this->form_edit_links()
 		);
-		$this->build('student/portfolio', $data);
+		$this->build('forms\forms', $data);
 	}
 
 	public function add()
 	{
 		//this command loads a view from the views folder
-		$this->build('student/add');
+		$this->build('forms/add');
 	}
 
 	public function update(){
 
 		//this command loads a view from the views folder
-		$this->build('student/update');
+		$this->build('forms/update');
 	}
 
 
