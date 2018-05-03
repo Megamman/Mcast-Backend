@@ -23,9 +23,6 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="mr-auto">
-                    <a href="#" class="nav-link">Register</a> <!--Put Register function here-->
-                </li>
-                <li class="mr-auto">
                     <a href="#" class="nav-link">Log Out</a> <!--Put logout function here-->
                 </li>
             </ul>
