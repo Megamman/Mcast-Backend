@@ -28,6 +28,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Surame</th>
+                <th scope="col">Email</th>
                 <th scope="col">Course</th>
                 <th scope="col">Level</th>
                 <th scope="col">Link</th>
@@ -41,6 +42,7 @@
                 <td>123456M</td>
                 <td>Mark</td>
                 <td>Marks</td>
+                <td>email@example.com</td>
                 <td>Course Name</td>
                 <td>2</td>
                 <td>@mdo</td>
