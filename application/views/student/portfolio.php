@@ -23,9 +23,7 @@
     <table class="table table-sm text-center">
         <thead>
             <tr class="table-active">
-                <td scope="col">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </td>
+                <th><input type="checkbox" name="select-all" id="select-all" />&nbsp;</th>
                 <th scope="col">Favorite</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
@@ -37,9 +35,8 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </td>
+                <td><input type="checkbox" name="delete[]"/></td>
+                <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
                 <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
                 <td>123456M</td>
                 <td>Mark</td>

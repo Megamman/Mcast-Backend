@@ -9,6 +9,10 @@
             <input type="name" class="form-control" id="exampleInputName" aria-describedby="NameHelp" placeholder="Enter Name">
         </div>
         <div class="form-group">
+            <label for="exampleInputName">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="EmailHelp" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
             <label for="exampleInputStartDate">Start Date</label>
             <input type="date" class="form-control" id="exampleInputStartDate" aria-describedby="StartDateHelp" placeholder="Enter Start Date">
         </div>

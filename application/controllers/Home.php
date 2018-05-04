@@ -11,12 +11,10 @@ class Home extends MY_Controller {
 		parent::__construct();
 	}
 
-	function index()
+
+	public function index()
 	{
-		$data = array(
-			'links'		=> $this->stud_edit_links()
-		);
-		$this->build('student/portfolio', $data);
+		$this->load->view('login');
 	}
 
 }

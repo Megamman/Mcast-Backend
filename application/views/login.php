@@ -12,11 +12,11 @@
     </head>
     <body class="text-centre">
         <div class="container">
-            <div class="mx-auto mt-5" style="width: 300px">
+            
+            <img src="<?=base_url('images/MCAST-Main.png')?>" alt="" class="mx-auto mt-5 d-block" width="400px">
+
+            <div class="mx-auto" style="width: 300px">
                 <form class="form-signin">
-                    <div class="form-group">
-                        <img src="<?=base_url('images/MCAST-Main.png')?>" alt="" class="mx-auto d-block" width="200px">
-                    </div>
                     <div class="form-group">
                         <label for="exampleDropdownFormEmail2">Email address</label>
                         <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">

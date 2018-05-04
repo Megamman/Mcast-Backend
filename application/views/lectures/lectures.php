@@ -27,6 +27,7 @@
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </th>
                 <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
                 <th scope="col">Start</th>
                 <th scope="col">End</th>
             </tr>
@@ -37,6 +38,7 @@
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </td>
                 <td>Lecturer Name</td>
+                <td>Lecturer Email</td>
                 <td>Starting Date</td>
                 <td>Enging Date</td>
             </tr>
