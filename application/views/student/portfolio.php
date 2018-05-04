@@ -23,9 +23,9 @@
     <table class="table table-sm text-center">
         <thead>
             <tr class="table-active">
-                <th scope="col">
+                <td scope="col">
                     <input type="checkbox" aria-label="Checkbox for following text input">
-                </th>
+                </td>
                 <th scope="col">Favorite</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
@@ -37,10 +37,10 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">
+                <td scope="row">
                     <input type="checkbox" aria-label="Checkbox for following text input">
-                </th>
-                <td> <button type="button" name="button"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
+                </td>
+                <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
                 <td>123456M</td>
                 <td>Mark</td>
                 <td>Marks</td>

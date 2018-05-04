@@ -23,6 +23,9 @@
     <table class="table table-sm text-center">
         <thead>
             <tr class="table-active">
+                <th scope="col">
+                    <input type="checkbox" aria-label="Checkbox for following text input">
+                </th>
                 <th scope="col">News Title</th>
                 <th scope="col">Description</th>
                 <th scope="col">Image</th>
@@ -30,10 +33,11 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">
+                <td scope="row">
                     <input type="checkbox" aria-label="Checkbox for following text input">
-                </th>
-                <td>Class Booking</td>
+                </td>
+                <td>New MCAST Website</td>
+                <td>About the new website....</td>
                 <td>@Image@</td>
             </tr>
         </tbody>

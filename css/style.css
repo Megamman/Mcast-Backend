@@ -20,6 +20,11 @@ footer svg {
     margin-right: 1em;
 }
 
+button .favorite {
+    border: none !important;
+    background: none !important;
+}
+
 .card-title {
     margin: 10px;
 }
