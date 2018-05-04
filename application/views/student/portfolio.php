@@ -20,10 +20,12 @@
 </div>
 
 <div class="container">
-    <table class="table table-sm ">
+    <table class="table table-sm text-center">
         <thead>
-            <tr class="table-active ">
-                <th scope="col">Selected</th>
+            <tr class="table-active">
+                <th scope="col">
+                    <input type="checkbox" aria-label="Checkbox for following text input">
+                </th>
                 <th scope="col">Favorite</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>

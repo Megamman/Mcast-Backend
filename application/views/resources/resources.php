@@ -1,6 +1,6 @@
 <div class="container td-margin d-flex flex-row mt-4 mb-3 align-items-center">
     <h5 class="card-title">Resource</h5>
-    
+
     <?php foreach ($links as $link): ?>
         <a href="<?=site_url($link['link'])?>" class="btn btn-link btn-sm mr-1 mt-2" role="button">
             <?php if ($link['icon'] != null): ?>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="container">
-    <table class="table table-sm">
+    <table class="table table-sm text-center">
         <thead>
             <tr class="table-active">
                 <th scope="col">Selected</th>

@@ -14,7 +14,7 @@ class Home extends MY_Controller {
 	function index()
 	{
 		$data = array(
-			'links'		=> $this->edit_links()
+			'links'		=> $this->stud_edit_links()
 		);
 		$this->build('student/portfolio', $data);
 	}
