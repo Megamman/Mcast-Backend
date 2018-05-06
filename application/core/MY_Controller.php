@@ -32,10 +32,10 @@ class MY_Controller extends CI_Controller {
     function nav_links(){
         return array(
             'Student Profile'                      => 'students',
-            'Student Resources'                    => 'resources',
             'Forms'                                => 'forms',
             'Timetables'                           => 'timetables',
             'Lectures'                             => 'lectures',
+            'Vacancies'                             => 'jobs',
             'News'                                 => 'news'
         );
     }
@@ -60,22 +60,22 @@ class MY_Controller extends CI_Controller {
 		);
 	}
 
-    protected function res_edit_links(){
+    protected function job_edit_links(){
 		return array(
 			array(
 				'icon'		=> 'fa-plus',
 				'caption'	=> NULL,
-				'link'		=> 'resources/add'
+				'link'		=> 'jobs/add'
 			),
 			array(
 				'icon'		=> 'fa-trash-alt',
 				'caption'	=> NULL,
-				'link'		=> 'resources/boop'
+				'link'		=> 'jobs/boop'
 			),
 			array(
 				'icon'		=> NULL,
 				'caption'	=> 'Update',
-				'link'		=> 'resources/update'
+				'link'		=> 'jobs/update'
 			)
 		);
 	}

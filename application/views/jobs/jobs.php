@@ -1,5 +1,5 @@
 <div class="container td-margin d-flex flex-row mt-4 mb-3 align-items-center">
-    <h5 class="card-title">Resource</h5>
+    <h5 class="card-title">Vacancies</h5>
 
     <?php foreach ($links as $link): ?>
         <a href="<?=site_url($link['link'])?>" class="btn btn-link btn-sm mr-1 mt-2" role="button">
@@ -26,9 +26,8 @@
                 <th scope="col">
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </th>
-                <th scope="col">Resource</th>
-                <th scope="col">Link</th>
-                <th scope="col">Image</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Job Description</th>
             </tr>
         </thead>
         <tbody>
@@ -36,9 +35,8 @@
                 <td scope="row">
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </td>
-                <td>Schoology</td>
-                <td>https://www.schoology.com/</td>
-                <td>@Image@</td>
+                <td>Position</td>
+                <td>what is the job</td>
             </tr>
         </tbody>
     </table>

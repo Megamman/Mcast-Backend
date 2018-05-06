@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Resources extends MY_Controller {
+class Jobs extends MY_Controller {
 
 	// magic method to load the parent class
 	function __construct()
@@ -13,27 +13,27 @@ class Resources extends MY_Controller {
 
 	function index()
 	{
-		$this->resources();
+		$this->jobs();
 	}
 
-	function resources()
+	function jobs()
 	{
 		$data = array(
-			'links'		=> $this->res_edit_links()
+			'links'		=> $this->job_edit_links()
 		);
-		$this->build('resources\resources', $data);
+		$this->build('jobs\jobs', $data);
 	}
 
 	public function add()
 	{
 		//this command loads a view from the views folder
-		$this->build('resources/add');
+		$this->build('jobs/add');
 	}
 
 	public function update(){
 
 		//this command loads a view from the views folder
-		$this->build('resources/update');
+		$this->build('jobs/update');
 	}
 
 
