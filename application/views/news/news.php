@@ -20,7 +20,7 @@
 </div>
 
 <div class="container">
-    <table class="table table-sm text-center">
+    <table class="table table-sm  ">
         <thead>
             <tr class="table-active">
                 <th scope="col">

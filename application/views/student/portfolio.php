@@ -20,7 +20,7 @@
 </div>
 
 <div class="container">
-    <table class="table table-sm text-center">
+    <table class="table table-sm">
         <thead>
             <tr class="table-active">
                 <th><input type="checkbox" name="select-all" id="select-all" />&nbsp;</th>
@@ -35,6 +35,30 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td><input type="checkbox" name="delete[]"/></td>
+                <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
+                <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
+                <td>123456M</td>
+                <td>Mark</td>
+                <td>Marks</td>
+                <td>email@example.com</td>
+                <td>Course Name</td>
+                <td>2</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="delete[]"/></td>
+                <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
+                <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
+                <td>123456M</td>
+                <td>Mark</td>
+                <td>Marks</td>
+                <td>email@example.com</td>
+                <td>Course Name</td>
+                <td>2</td>
+                <td>@mdo</td>
+            </tr>
             <tr>
                 <td><input type="checkbox" name="delete[]"/></td>
                 <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
