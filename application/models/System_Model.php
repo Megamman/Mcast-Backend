@@ -20,11 +20,12 @@ class System_Model extends CI_Model {
     }
 
     # Checks the user details table for unchanged/existing data
-    public function check_user_details($id)
+    public function check_user_details($id, $name)
     {
 
         $data = array(
-            'id_login'       => $id
+            'id_login'       => $id.
+            'user_name'      => $name
         );
 
         return $this->db->get_where('tbl_login', $data)->num_rows() == 1;
@@ -46,10 +47,10 @@ class System_Model extends CI_Model {
 
         $data = array(
             'user_id'       => $id,
-            #  MUST ADD name and 'u_creation'    => time()
+            'user_time'    => time()
         );
 
-        $this->db->insert('tbl_user_details', $data);
+        $this->db->insert('tbl_users', $data);
 
         return $this->db->affected_rows() == 1;
     }
@@ -57,17 +58,46 @@ class System_Model extends CI_Model {
     # Checks the password provided by the user
     public function check_password($email, $password)
     {
-        $info = $this->db->select('id_login, pass_login, u_salt')
+        $info = $this->db->select('id_login, pass_login, salt_login')
                         ->where('email_login', $email)
                         ->get('tbl_login')
                         ->row_array();
 
-        $checkstr = strrev($info['u_salt']).$password;
+        $checkstr = strrev($info['salt_login']).$password;
 
         return password_verify($checkstr, $info['pass_login']) ? $info['id_login'] : FALSE;
     }
 
     # Writes the login data and retrieve the user's information
+    public function set_login_data($id, $code)
+    {
+        # 1. write the login information or stop the code here
+        if (!$this->persist($id, $code))
+        {
+            return FALSE;
+        }
 
+        return $this->db->select('tbl_login.id_login,
+                            tbl_login.email_login AS email,
+                            tbl_users.user_name AS name,
+                            tbl_login_info.u_persistence AS session_code')
+                        ->join('tbl_user_details', 'tbl_user_details.user_id = tbl_users.id', 'left')
+                        ->join('tbl_login_info', 'tbl_login_info.id_login_info = tbl_login.id_login', 'left')
+                        ->where('tbl_login.id_login', $id)
+                        ->get('tbl_login')
+                        ->row_array();
+    }
 
-    
+    # Writes the login information to the database
+    public function persist($id, $code)
+    {
+        $data = array(
+            'user_id'       => $id,
+            'u_login_time'  => time(),
+            'u_persistence' => $code
+        );
+
+        $this->db->insert('tbl_login_info', $data);
+
+        return $this->db->affected_rows() == 1;
+    }
