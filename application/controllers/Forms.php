@@ -21,7 +21,7 @@ class Forms extends MY_Controller {
 		$data = array(
 			'links'		=> $this->form_edit_links()
 		);
-		$this->build('forms\forms', $data);
+		$this->build('forms/forms', $data);
 	}
 
 	public function add()

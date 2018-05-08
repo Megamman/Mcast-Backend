@@ -21,7 +21,7 @@ class Lectures extends MY_Controller {
 		$data = array(
 			'links'		=> $this->lect_edit_links()
 		);
-		$this->build('lectures\lectures', $data);
+		$this->build('lectures/lectures', $data);
 	}
 
 	public function add()

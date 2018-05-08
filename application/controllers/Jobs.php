@@ -21,7 +21,7 @@ class Jobs extends MY_Controller {
 		$data = array(
 			'links'		=> $this->job_edit_links()
 		);
-		$this->build('jobs\jobs', $data);
+		$this->build('jobs/jobs', $data);
 	}
 
 	public function add()

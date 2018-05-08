@@ -21,7 +21,7 @@ class News extends MY_Controller {
 		$data = array(
 			'links'		=> $this->news_edit_links()
 		);
-		$this->build('news\news', $data);
+		$this->build('news/news', $data);
 	}
 
 	public function add()

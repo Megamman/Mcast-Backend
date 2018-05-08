@@ -21,7 +21,7 @@ class Timetables extends MY_Controller {
 		$data = array(
 			'links'		=> $this->tt_edit_links()
 		);
-		$this->build('timetables\timetables', $data);
+		$this->build('timetables/timetables', $data);
 	}
 
 	public function add()

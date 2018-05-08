@@ -12,9 +12,11 @@
     </head>
     <body class="text-centre">
         <div class="container">
-            
-            <img src="<?=base_url('images/MCAST-Main.png')?>" alt="" class="mx-auto mt-5 d-block" width="400px">
 
+
+
+            <img src="<?=base_url('images/MCAST-Main.png')?>" alt="" class="mx-auto mt-5 d-block" width="400px">
+            <form class="px-4 py-3" action="index.html" method="post">
             <div class="mx-auto" style="width: 300px">
                 <form class="form-signin">
                     <div class="form-group">
@@ -34,6 +36,8 @@
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
             </div>
+
+            </form>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
