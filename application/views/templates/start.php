@@ -27,7 +27,7 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="mr-auto">
-                        <a href="#" class="nav-link">Log Out</a> <!--Put logout function here-->
+                        <a href="System.php" class="nav-link">Log Out</a>
                     </li>
                 </ul>
             </div>
