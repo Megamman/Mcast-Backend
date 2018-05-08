@@ -17,6 +17,10 @@
             <input type="Surname" class="form-control" id="exampleInputSurname" aria-describedby="surnameHelp" placeholder="Enter Student Surname">
         </div>
         <div class="form-group">
+            <label for="exampleInputName">Email</label>
+            <input type="Email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Student Email">
+        </div>
+        <div class="form-group">
             <label for="exampleInputCourse">Course</label>
             <input type="Course" class="form-control" id="exampleInputCourse" aria-describedby="courseHelp" placeholder="Enter Course Name">
         </div>
