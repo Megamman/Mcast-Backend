@@ -40,7 +40,7 @@
                 <td>Lecturer Name</td>
                 <td>Lecturer Email</td>
                 <td>Starting Date</td>
-                <td>Enging Date</td>
+                <td>Ending Date</td>
             </tr>
         </tbody>
     </table>
