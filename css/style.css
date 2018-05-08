@@ -38,6 +38,7 @@
 
 * {
     font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -73,8 +74,10 @@ button .favorite {
 
 .navbar-dark .navbar-nav .nav-link {
     color: white;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: black;
+    color: #007bff;
 }

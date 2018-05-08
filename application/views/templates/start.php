@@ -12,18 +12,23 @@
     </head>
     <body>
 
-
-        <nav class="navbar navbar-expand navbar-dark bg-dark">
-            <ul class="navbar-nav mx-auto">
-                <?php foreach ($nav as $page => $url): ?>
-                    <li class="nav-item">
-                        <?=anchor($url, $page, array('class' => 'nav-link'));?>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <?php foreach ($nav as $page => $url): ?>
+                        <li class="nav-item">
+                            <?=anchor($url, $page, array('class' => 'nav-link'));?>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+            <div class="mx-auto order-0">
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="mr-auto">
+                        <a href="#" class="nav-link">Log Out</a> <!--Put logout function here-->
                     </li>
-                <?php endforeach ?>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="mr-auto">
-                    <a href="#" class="nav-link">Log Out</a> <!--Put logout function here-->
-                </li>
-            </ul>
+                </ul>
+            </div>
         </nav>
