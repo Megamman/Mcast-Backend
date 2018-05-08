@@ -27,7 +27,7 @@
                 <th scope="col">Favorite</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col">Surame</th>
+                <th scope="col">Surname</th>
                 <th scope="col">Email</th>
                 <th scope="col">Course</th>
                 <th scope="col">Level</th>
