@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'system/login';
 $route['login/submit'] = 'system/login_submit';
+
+$route['register'] = 'register/register';
+$route['register/submit'] = 'register/register_submit';

@@ -1,6 +1,6 @@
 <div class="container td-margin mt-4 mb-3">
 
-    <?=form_open('Register/submit'); ?>
+    <?=form_open('register/submit'); ?>
         <div class="form-group">
             <label for="InputIdNumb">ID Card Number</label>
             <input type="text" class="form-control" name="idcard" id="InputIdNumb" aria-describedby="idnumbHelp" placeholder="Enter ID Card Number">
