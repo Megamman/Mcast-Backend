@@ -8,7 +8,7 @@ class System_Model extends CI_Model {
     {
 
         $data = array(
-            'user_id'           => $idcard
+            'user_id'           => $idcard,
             'email_login'       => $email,
             'pass_login'        => password_hash($salt.$password, CRYPT_BLOWFISH),
             'salt_login'        => strrev($salt)
@@ -21,12 +21,13 @@ class System_Model extends CI_Model {
     }
 
     # Checks the user details table for unchanged/existing data
-    public function check_user_details($id, $name)
+    public function check_user_details($id, $name, $surname)
     {
 
         $data = array(
-            'id_login'       => $id.
-            'user_name'      => $name
+            'id_login'          => $id,
+            'user_name'         => $name,
+            'user_surname'      => $surname
         );
 
         return $this->db->get_where('tbl_login', $data)->num_rows() == 1;
@@ -103,3 +104,4 @@ class System_Model extends CI_Model {
 
         return $this->db->affected_rows() == 1;
     }
+}

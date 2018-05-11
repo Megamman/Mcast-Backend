@@ -55,4 +55,11 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'system/login';
 $route['login/submit'] = 'system/login_submit';
+<<<<<<< HEAD
+=======
+
+$route['register'] = 'register';
+$route['register/submit'] = 'register/register_submit';
+
+>>>>>>> e343cda1e2bb10d01c13c35bc9a30f82e0f80893
 $route['student/add'] = 'students/add_student';
