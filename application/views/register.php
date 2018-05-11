@@ -1,3 +1,4 @@
+
 <form class="" action="#" method="post">
     <div class="form-group">
         <label for="InputIdNumb">ID Card Number</label>
@@ -12,17 +13,17 @@
         <input type="password" class="form-control" id="InputPassword" placeholder="Password">
     </div>
     <div class="row">
-        <div class="form-check">
+        <div class="form-check col-4">
             <input type="checkbox" class="form-check-input" id="studCheck">
             <label class="form-check-label" for="exampleCheck1">Student</label>
         </div>
 
-        <div class="form-check">
+        <div class="form-check col-4">
             <input type="checkbox" class="form-check-input" id="lectCheck">
             <label class="form-check-label" for="exampleCheck1">Lecturer</label>
         </div>
 
-        <div class="form-check">
+        <div class="form-check col-4">
             <input type="checkbox" class="form-check-input" id="adminCheck">
             <label class="form-check-label" for="exampleCheck1">Admin</label>
         </div>
