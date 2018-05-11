@@ -4,13 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class System_Model extends CI_Model {
 
     # Register a user into the first table
-    public function add_user($email, $password, $salt)
+    public function add_user($idcard, $email, $password, $salt)
     {
 
         $data = array(
+            'user_id'           => $idcard
             'email_login'       => $email,
-            'password_login'    => password_hash($salt.$password, CRYPT_BLOWFISH),
-            #  MUST ADD 'salt_login'        => strrev($salt)
+            'pass_login'        => password_hash($salt.$password, CRYPT_BLOWFISH),
+            'salt_login'        => strrev($salt)
         );
 
         $this->db->insert('tbl_login', $data);
@@ -46,8 +47,8 @@ class System_Model extends CI_Model {
         }
 
         $data = array(
-            'user_id'       => $id,
-            'user_time'    => time()
+            'user_id'          => $id,
+            'user_creation'    => time()
         );
 
         $this->db->insert('tbl_users', $data);
@@ -80,9 +81,10 @@ class System_Model extends CI_Model {
         return $this->db->select('tbl_login.id_login,
                             tbl_login.email_login AS email,
                             tbl_users.user_name AS name,
+                            tbl_users.user_surname AS surname,
                             tbl_login_info.u_persistence AS session_code')
-                        ->join('tbl_user_details', 'tbl_user_details.user_id = tbl_users.id', 'left')
-                        ->join('tbl_login_info', 'tbl_login_info.id_login_info = tbl_login.id_login', 'left')
+                        ->join('tbl_users', 'tbl_users.user_id = tbl_users.tbl_login_id_login', 'left')
+                        ->join('tbl_login_info', 'tbl_login_info.tbl_login_id_login = tbl_login.id_login', 'left')
                         ->where('tbl_login.id_login', $id)
                         ->get('tbl_login')
                         ->row_array();
@@ -92,8 +94,8 @@ class System_Model extends CI_Model {
     public function persist($id, $code)
     {
         $data = array(
-            'user_id'       => $id,
-            'u_login_time'  => time(),
+            'tbl_login_id_login'       => $id,
+            'user_time'  => time(),
             'u_persistence' => $code
         );
 

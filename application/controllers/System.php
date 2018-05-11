@@ -150,50 +150,5 @@ class System extends MY_Controller {
 	}
 
 
-    # The Register Submission page
-    public function register_submit()
-    {
-        # 1. Check the form for validation errors
-        if ($this->fv->run('register') === FALSE)
-        {
-            echo validation_errors();
-            return;
-        }
-
-        # 2. Retrieve the first set of data
-        $email      = $this->input->post('email');
-        $password   = $this->input->post('password');
-
-        # 3. Generate a random keyword for added protection
-        # Since the encrypted key is in binary, we should change it to a hex string (0-9, a-f)
-        $salt       = bin2hex($this->encryption->create_key(8));
-
-        # 3. Add them to the database, and retrieve the ID
-        $id = $this->system->add_user($email, $password, $salt);
-
-        # 4. If the ID didn't register, we can't continue.
-        if ($id === FALSE)
-        {
-            echo "We couldn't register the user because of a database error.";
-            return;
-        }
-
-        # 5. Retrieve the next data
-        $name       = $this->input->post('name');
-        $surname    = $this->input->post('surname');
-
-        # 6. Add the details to the next table
-        $check = $this->system->user_details($id, $name, $surname);
-
-        # 7. If the query failed, delete the user to avoid partial data.
-        if ($check === FALSE)
-        {
-            $this->system->delete_user($id);
-            echo "We couldn't register the user because of a database error.";
-            return;
-        }
-
-        # 8. Everything is fine, return to the home page.
-        redirect('/');
-    }
+    
 }

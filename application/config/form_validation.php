@@ -32,7 +32,7 @@ $config = array(
         array(
             'field' => 'email',
             'label' => 'Email',
-            'rules' => 'required|valid_email|is_unique[tbl_users.u_email]'
+            'rules' => 'required|valid_email|is_unique[tbl_login.email_login]'
         ),
         array(
             'field' => 'password',
