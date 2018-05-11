@@ -6,8 +6,12 @@
     <form>
         <div class="form-group">
             <label for="exampleInputName">Form Name</label>
-            <input type="Name" class="form-control" id="exampleFormName" aria-describedby="FormNameHelp" placeholder="Upload Form Name">
+            <input type="text" class="form-control" id="formName" aria-describedby="formName" name="formnNme" placeholder="Upload Form Name">
         </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Form Description</label>
+            <textarea class="form-control" id="formDesc" name="formDesc" placeholder="Enter Description" rows="3"></textarea>
+         </div>
         <div class="form-group">
             <label for="exampleInputStartDate">Form</label>
             <input type="file" class="form-control" id="exampleInputFormFile" aria-describedby="FormHelp" placeholder="Upload From File">

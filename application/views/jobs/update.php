@@ -9,9 +9,9 @@
             <input type="text" class="form-control" id="exampleInputJob" aria-describedby="jobHelp" placeholder="Enter Job Name">
         </div>
         <div class="form-group">
-            <label for="exampleInputDescription">Job Description</label>
-            <input type="text" class="form-control" id="exampleInputDescription" aria-describedby="descriptionHelp" placeholder="Enter Job Description">
-        </div>
+            <label for="exampleFormControlTextarea1">Job Description</label>
+            <textarea class="form-control" id="jobDesc" name="jobDesc" placeholder="Enter Description" rows="3"></textarea>
+         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

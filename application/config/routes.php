@@ -55,6 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'system/login';
 $route['login/submit'] = 'system/login_submit';
-
-
 $route['student/add'] = 'students/add_student';
