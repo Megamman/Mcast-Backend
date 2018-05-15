@@ -25,12 +25,12 @@ class System_Model extends CI_Model {
     {
 
         $data = array(
-            'id_login'          => $id,
+            'tbl_login_id_login'          => $id,
             'user_name'         => $name,
             'user_surname'      => $surname
         );
 
-        return $this->db->get_where('tbl_login', $data)->num_rows() == 1;
+        return $this->db->get_where('tbl_users', $data)->num_rows() == 1;
     }
 
     # Deletes a user from the database
@@ -42,13 +42,13 @@ class System_Model extends CI_Model {
     # Associate user details with the login data
     public function user_details($id)
     {
-        if ($this->check_user_details($id))
+        if ($this->check_user_details($id, $name, $surname))
         {
             return TRUE;
         }
 
         $data = array(
-            'user_id'          => $id,
+            'tbl_login_id_login'          => $id,
             'user_creation'    => time()
         );
 
