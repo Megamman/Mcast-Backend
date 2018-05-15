@@ -6,6 +6,7 @@ class System_Model extends CI_Model {
     # Register a user into the first table
     public function add_user($idcard, $name, $surname, $email, $password, $role, $salt){
 
+
         $dataLogin = array(
             'user_id'               => $idcard,
             'email_login'           => $email,
@@ -114,6 +115,7 @@ class System_Model extends CI_Model {
 
     public function getRoles(){
         $results = $this->db->select("*")
+                        ->where('id != ', 3)
                         ->get('tbl_roles')
                         ->result_array();
 

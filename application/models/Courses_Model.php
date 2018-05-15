@@ -24,12 +24,16 @@ class Courses_Model extends CI_Model {
 
     public function add_student($id_card, $email, $name, $surname, $course, $link) {
 
+        $salt 		= bin2hex($this->encryption->create_key(8));
+
         //an insert query
         //inset into tbl_users(cols) values (cols)
 
         $dataLogin = array(
             'user_id'               => $id_card,
-            'email_login'           => $email
+            'email_login'           => $email,
+            'pass_login'            => password_hash($salt.$id_card, CRYPT_BLOWFISH),
+            'salt_login'            => strrev($salt)
         );
         $this->db->insert('tbl_login', $dataLogin);
         //gives us whatever the PK value is last
