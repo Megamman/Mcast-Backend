@@ -20,6 +20,11 @@ $config = array(
     # The register form rules
     'register'      => array(
         array(
+            'field' => 'idcard',
+            'label' => 'Idcard',
+            'rules' => 'required'
+        ),
+        array(
             'field' => 'name',
             'label' => 'Name',
             'rules' => 'required'
@@ -39,7 +44,9 @@ $config = array(
             'label' => 'Password',
             'rules' => 'required|min_length[8]|password_strength'
         )
+
     ),
+
     'add_student'   => array(
         array(
             'field' => 'id_card',

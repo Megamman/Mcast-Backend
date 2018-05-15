@@ -4,25 +4,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class System_Model extends CI_Model {
 
     # Register a user into the first table
-    public function add_user($idcard, $email, $password, $salt)
-    {
+    public function add_user($idcard, $name, $surname, $email, $password, $role, $salt){
 
-        $data = array(
-            'user_id'           => $idcard,
-            'email_login'       => $email,
-            'pass_login'        => password_hash($salt.$password, CRYPT_BLOWFISH),
-            'salt_login'        => strrev($salt)
+        $dataLogin = array(
+            'user_id'               => $idcard,
+            'email_login'           => $email,
+            'pass_login'            => password_hash($salt.$password, CRYPT_BLOWFISH),
+            'salt_login'            => strrev($salt),
+            'tbl_roles_id'          => $role
+
         );
+        $this->db->insert('tbl_login', $dataLogin);
+        //gives us whatever the PK value is last
+        //return $this->db->insert_id(); code below will get ID (this-db-insert-id)
+        $id = $this->db->insert_id();
 
-        $this->db->insert('tbl_login', $data);
 
-        return $this->db->insert_id();
+        //adding user data to its table
+        $dataUser = array(
+            'tbl_login_id_login'    => $id,
+            'user_name'             => $name,
+            'user_surname'          => $surname
+        );
+        $this->db->insert('tbl_users', $dataUser);
+
+        return $id;
 
     }
 
     # Checks the user details table for unchanged/existing data
-    public function check_user_details($id, $name, $surname)
-    {
+    public function check_user_details($id, $name, $surname){
 
         $data = array(
             'tbl_login_id_login'          => $id,
@@ -34,14 +45,12 @@ class System_Model extends CI_Model {
     }
 
     # Deletes a user from the database
-    public function delete_user($id)
-    {
+    public function delete_user($id){
         $this->db->delete('tbl_login', array('id' => $id));
     }
 
     # Associate user details with the login data
-    public function user_details($id)
-    {
+    public function user_details($id){
         if ($this->check_user_details($id, $name, $surname))
         {
             return TRUE;
@@ -58,8 +67,7 @@ class System_Model extends CI_Model {
     }
 
     # Checks the password provided by the user
-    public function check_password($email, $password)
-    {
+    public function check_password($email, $password){
         $info = $this->db->select('id_login, pass_login, salt_login')
                         ->where('email_login', $email)
                         ->get('tbl_login')
@@ -71,8 +79,7 @@ class System_Model extends CI_Model {
     }
 
     # Writes the login data and retrieve the user's information
-    public function set_login_data($id, $code)
-    {
+    public function set_login_data($id, $code){
         # 1. write the login information or stop the code here
         if (!$this->persist($id, $code))
         {
@@ -92,8 +99,7 @@ class System_Model extends CI_Model {
     }
 
     # Writes the login information to the database
-    public function persist($id, $code)
-    {
+    public function persist($id, $code){
         $data = array(
             'tbl_login_id_login'       => $id,
             'user_time'  => time(),
@@ -104,4 +110,20 @@ class System_Model extends CI_Model {
 
         return $this->db->affected_rows() == 1;
     }
+
+
+    public function getRoles(){
+        $results = $this->db->select("*")
+                        ->get('tbl_roles')
+                        ->result_array();
+
+        $array = [];
+        foreach ($results as $row)
+        {
+            $array[$row['id']] = $row['name'];
+        }
+
+        return $array;
+    }
+
 }
