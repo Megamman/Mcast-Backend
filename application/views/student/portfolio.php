@@ -23,8 +23,6 @@
     <table class="table table-sm">
         <thead>
             <tr class="table-active">
-                <th><input type="checkbox" name="select-all" id="select-all" />&nbsp;</th>
-                <th scope="col">Favorite</th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Surname</th>
@@ -35,42 +33,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input type="checkbox" name="delete[]"/></td>
-                <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
-                <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
-                <td>123456M</td>
-                <td>Mark</td>
-                <td>Marks</td>
-                <td>email@example.com</td>
-                <td>Course Name</td>
-                <td>2</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="delete[]"/></td>
-                <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
-                <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
-                <td>123456M</td>
-                <td>Mark</td>
-                <td>Marks</td>
-                <td>email@example.com</td>
-                <td>Course Name</td>
-                <td>2</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="delete[]"/></td>
-                <!--value="<?=$assoc['user_id']?>"/>&nbsp;-->
-                <td> <button type="button" name="button" class="favorite"> <i class="far fa-star"></i> <i class="fas fa-star yell hidden"></i></button></td>
-                <td>123456M</td>
-                <td>Mark</td>
-                <td>Marks</td>
-                <td>email@example.com</td>
-                <td>Course Name</td>
-                <td>2</td>
-                <td>@mdo</td>
-            </tr>
+            <?php foreach($users->result_array() as $user): ?>
+                    <tr>
+                        <td>    <?=$user['user_id'];?>         </td>
+                        <td>    <?=$user['user_name'];?>       </td>
+                        <td>    <?=$user['user_surname'];?>       </td>
+                        <td>    <?=$user['email_login'];?>    </td>
+                        <td>    <?=$user['course_name'];?>    </td>
+                        <td>    <?=$user['course_lvl'];?>    </td>
+                        <td>    <?=$user['std_link'];?>    </td>
+                    </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

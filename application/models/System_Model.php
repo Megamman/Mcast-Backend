@@ -113,6 +113,7 @@ class System_Model extends CI_Model {
     }
 
 
+    //get roles from Database
     public function getRoles(){
         $results = $this->db->select("*")
                         ->where('id != ', 3)

@@ -18,10 +18,18 @@ class Students extends MY_Controller {
 
 	function portfolio()
 	{
+
+		$this->load->model('courses_model');
+
 		$data = array(
-			'links'		=> $this->stud_edit_links()
+			'links'		=> $this->stud_edit_links(),
+			'users' 	=> $this->courses_model->get_students()
 		);
+		
 		$this->build('student/portfolio', $data);
+
+
+
 	}
 
 	public function add()
