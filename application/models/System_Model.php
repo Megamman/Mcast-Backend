@@ -45,10 +45,7 @@ class System_Model extends CI_Model {
         return $this->db->get_where('tbl_users', $data)->num_rows() == 1;
     }
 
-    # Deletes a user from the database
-    public function delete_user($id){
-        $this->db->delete('tbl_login', array('id' => $id));
-    }
+    
 
     # Associate user details with the login data
     public function user_details($id){

@@ -11,13 +11,11 @@ class Students extends MY_Controller {
 		parent::__construct();
 	}
 
-	function index()
-	{
+	function index(){
 		$this->portfolio();
 	}
 
-	function portfolio()
-	{
+	function portfolio(){
 
 		$this->load->model('courses_model');
 
@@ -25,15 +23,14 @@ class Students extends MY_Controller {
 			'links'		=> $this->stud_edit_links(),
 			'users' 	=> $this->courses_model->get_students()
 		);
-		
+
 		$this->build('student/portfolio', $data);
 
 
 
 	}
 
-	public function add()
-	{
+	public function add(){
 		$this->load->model('courses_model');
 
 		$data = array(
@@ -53,10 +50,7 @@ class Students extends MY_Controller {
 		$this->build('student/update');
 	}
 
-
-
-	public function add_student()
-    {
+	public function add_student(){
         # 1. Check the form for validation errors
         if ($this->fv->run('add_student') === FALSE)
         {

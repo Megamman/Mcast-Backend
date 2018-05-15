@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Courses_Model extends CI_Model {
 
     # Get the list of courses from the db
-    public function all()
-    {
+    public function all(){
 
         $result = $this->db->select('course_id, course_name')
                         ->get('tbl_courses')
@@ -21,6 +20,11 @@ class Courses_Model extends CI_Model {
 
     }
 
+
+    # Deletes a user from the database
+    public function delete_user($id){
+        $this->db->delete('tbl_login', array('id_login' => $id));
+    }
 
     public function add_student($id_card, $email, $name, $surname, $course, $link) {
 
@@ -58,7 +62,8 @@ class Courses_Model extends CI_Model {
 
 
     public function get_students(){
-        return $this->db->select('  tbl_login.user_id,
+        return $this->db->select('  tbl_login.id_login,
+                                    tbl_login.user_id,
                                     tbl_users.user_name,
                                     tbl_users.user_surname,
                                     tbl_login.email_login,

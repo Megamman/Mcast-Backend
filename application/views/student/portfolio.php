@@ -23,6 +23,7 @@
     <table class="table table-sm">
         <thead>
             <tr class="table-active">
+                <th></th>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Surname</th>
@@ -35,6 +36,7 @@
         <tbody>
             <?php foreach($users->result_array() as $user): ?>
                     <tr>
+                        <td><input type="checkbox" name="student[]" value="<?=$user['id_login']?>"></td>
                         <td>    <?=$user['user_id'];?>         </td>
                         <td>    <?=$user['user_name'];?>       </td>
                         <td>    <?=$user['user_surname'];?>       </td>
