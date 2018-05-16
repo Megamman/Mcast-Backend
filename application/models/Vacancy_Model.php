@@ -28,36 +28,4 @@ class Vacancy_Model extends CI_Model {
     }
 
 
-
-
-
-
-
-
-    /* down below is sample code.
-
-
-    # Get the list of courses from the db
-    public function all(){
-
-        $result = $this->db->select('course_id, course_name')
-                        ->get('tbl_courses')
-                        ->result_array();
-
-        $array = array();
-        foreach ($result as $row)
-        {
-            $array[$row['course_id']] = $row['course_name'];
-        }
-
-        return $array;
-
-    }
-    # Deletes a user from the database
-    public function delete_user($id){
-        $this->db->delete('tbl_login', array('id_login' => $id));
-    }
-
-    */
-
 }

@@ -48,13 +48,36 @@ class Forms extends MY_Controller {
 		$name     	= $this->input->post('form_name');
 		$desc    	= $this->input->post('form_desc');
 
+		chmod('uploads', 0777);
+		chmod('uploads/forms', 0777);
+
+		$config['upload_path']          = './uploads/forms/';
+	   	$config['allowed_types']        = 'gif|jpg|png';
+	   	$config['max_size']             = 10000;
 		$this->load->model('forms_model');
 
 		$this->forms_model->add_forms($id, $name, $desc);
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('userfile'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+
+				$this->load->view('forms', $error);
+		}
+
 
 		echo "The Form was added";
 
 		redirect('forms');
+
+
+
+
+
+
+
+
 	}
 
 }

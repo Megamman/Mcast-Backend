@@ -21,7 +21,7 @@ class Jobs extends MY_Controller {
 		$this->load->model('vacancy_model');
 
 		$data = array(
-			'links'		=> $this->stud_edit_links(),
+			'links'		=> $this->job_edit_links(),
 			'jobs' 		=> $this->vacancy_model->get_vacancy()
 		);
 
