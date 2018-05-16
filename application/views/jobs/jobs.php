@@ -37,8 +37,8 @@
             <tr>
                 <td>    <input type="checkbox" name="job[]" value="<?=$job['job_id']?>">    </td>
                 <td>    <?=$job['job_name'];?>                                              </td>
-                <td>    <?=$job['job_desc'];?>                                             </td>
-                <td>    <?=$job['job_end'];?>                                             </td>
+                <td>    <?=$job['job_desc'];?>                                              </td>
+                <td>    <?=$job['job_end'];?>                                               </td>
             </tr>
             <?php endforeach; ?>
 
