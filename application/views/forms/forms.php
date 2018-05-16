@@ -32,14 +32,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td scope="row">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </td>
-                <td>Form Name</td>
-                <td>Form Description</td>
-                <td>@File@</td>
-            </tr>
+            <?php foreach($forms->result_array() as $form): ?>
+                <tr>
+                    <td>    <input type="checkbox" name="form[]" value="<?=$form['form_id']?>">                             </td>
+                    <td>    <?=$form['form_name'];?>                                                                        </td>
+                    <td>    <?=$form['form_desc'];?>                                                                        </td>
+                    <td>   to ask sir                                                                                 </td>
+
+                </tr>
+            <?php endforeach; ?>
+
         </tbody>
     </table>
 </div>

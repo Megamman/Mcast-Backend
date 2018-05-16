@@ -13,8 +13,12 @@ class Forms_Model extends CI_Model {
         $this->db->insert('tbl_forms', $dataForm);
     }
 
+    
+
     public function get_forms(){
-        return $this->db->select('form_id')
+        return $this->db->select('  form_id,
+                                    form_name,
+                                    form_desc')
                         ->get('tbl_forms');
     }
 

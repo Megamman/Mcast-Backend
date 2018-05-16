@@ -18,8 +18,13 @@ class Forms extends MY_Controller {
 
 	function forms()
 	{
+
+		$this->load->model('forms_model');
+
 		$data = array(
-			'links'		=> $this->form_edit_links()
+			'links'		=> $this->form_edit_links(),
+			'forms' 	=> $this->forms_model->get_forms()
+
 		);
 		$this->build('forms/forms', $data);
 	}
