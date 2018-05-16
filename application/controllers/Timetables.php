@@ -38,18 +38,39 @@ class Timetables extends MY_Controller {
 
 	public function add_timetable(){
 
-		//this command adds a timetable to the db
-		if ($this->fv->run('add_timetable') === FALSE)
+		# 1. Check the form for validation errors
+        if ($this->fv->run('add_timetable') === FALSE)
         {
 			echo validation_errors();
             return;
         }
 
-		$id 	= $this->input->post('course_id');
-		$name 	= $this->input->post('course_name');
-		$level 	= $this->input->post('course_lvl');
+		$name     	= $this->input->post('timetable');
+		$level    	= $this->input->post('level');
 
-		$this->load->model('Timetable_Model');		
+		chmod('uploads', 0777);
+		chmod('uploads/timetables', 0777);
+
+		$config['upload_path']          = './uploads/timetables/';
+		$config['file_name']          	= $name;
+	   	$config['allowed_types']        = 'jpg|png|pdf';
+	   	$config['max_size']             = 10000;
+		$this->load->model('Timetable_Model');
+
+		$this->Timetable_Model->add_timetable($name, $level);
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('userfile'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+
+				$this->load->view('timetables', $error);
+		}
+
+
+		echo "The Timetable was added";
+
+		redirect('timetables');
 	}
 
 

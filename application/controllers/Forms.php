@@ -76,13 +76,6 @@ class Forms extends MY_Controller {
 
 		redirect('forms');
 
-
-
-
-
-
-
-
 	}
 
 }

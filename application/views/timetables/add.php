@@ -9,17 +9,17 @@
 
         <div class="form-group">
             <label for="exampleInputTName">Timetable Name</label>
-            <input type="ID" class="form-control" id="exampleInputTName" aria-describedby="idHelp" name="timetable" placeholder="Enter Timetable Name">
+            <input type="ID" class="form-control" id="exampleInputTName" name="timetable" placeholder="Enter Timetable Name">
         </div>
 
         <div class="form-group">
             <label for="exampleInputLevel">Level</label>
-            <input type="text" class="form-control" id="exampleInputlevel" aria-describedby="levelHelp" name="level" placeholder="Enter Course Level">
+            <input type="text" class="form-control" id="exampleInputlevel"  name="level" placeholder="Enter Course Level">
         </div>
 
         <div class="form-group">
             <label for="exampleInpuTimetable">Timetable Image</label>
-            <input type="file" class="form-control" id="exampleInpuTimetable" aria-describedby="nameHelp" placeholder="Upload Timetable">
+            <input type="file" class="form-control" id="exampleInpuTimetable"  name="userfile" placeholder="Upload Timetable">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 
