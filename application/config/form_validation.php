@@ -78,6 +78,20 @@ $config = array(
             'label' => 'Link',
             'rules' => 'required'
         )
+    ),
+    'add_vacancy'   => array(
+        array(
+            'field' => 'jobName',
+            'label' => 'JobName',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'jobDesc',
+            'label' => 'JobDesc',
+            'rules' => 'required'
+        )
+
     )
+
 
 );

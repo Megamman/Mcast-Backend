@@ -63,3 +63,5 @@ $route['register/submit'] = 'register/register_submit';
 $route['student/add'] = 'students/add_student';
 
 $route['forms/add'] = 'forms/add_form';
+
+$route['vacancy/add'] = 'jobs/add_vacancy';

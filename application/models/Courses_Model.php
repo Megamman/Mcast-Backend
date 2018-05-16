@@ -19,8 +19,7 @@ class Courses_Model extends CI_Model {
         return $array;
 
     }
-
-
+    
     # Deletes a user from the database
     public function delete_user($id){
         $this->db->delete('tbl_login', array('id_login' => $id));
