@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-    <form>
+    <?=form_open('forms/add', array('class' => '')); ?>
         <div class="form-group">
             <label for="exampleInputName">Form Name</label>
             <input type="text" class="form-control" id="formName" aria-describedby="formName" name="formnNme" placeholder="Upload Form Name">
@@ -17,5 +17,5 @@
             <input type="file" class="form-control" id="exampleInputFormFile" aria-describedby="FormHelp" placeholder="Upload From File">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <?=form_close();?>
 </div>
