@@ -24,7 +24,7 @@ class Forms extends MY_Controller {
 		$this->build('forms/forms', $data);
 	}
 
-	public function add()
+	function add()
 	{
 		//this command loads a view from the views folder
 		$this->build('forms/add');
@@ -36,8 +36,25 @@ class Forms extends MY_Controller {
 		$this->build('forms/update');
 	}
 
+	public function add_forms(){
+        # 1. Check the form for validation errors
+        if ($this->fv->run('add_forms') === FALSE)
+        {
+			echo validation_errors();
+            return;
+        }
 
+		$id     	= $this->input->post('form_id');
+		$name     	= $this->input->post('form_name');
+		$desc    	= $this->input->post('form_desc');
 
+		$this->load->model('forms_model');
 
+		$this->forms_model->add_forms($id, $name, $desc);
+
+		echo "The Form was added";
+
+		redirect('forms');
+	}
 
 }

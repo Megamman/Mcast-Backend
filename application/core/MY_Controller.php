@@ -14,7 +14,6 @@ class MY_Controller extends CI_Controller {
         //load the parent into its child
         //will add the plugins from autoload
         parent:: __contruct();
-        $this->can_access();
 
     }
 

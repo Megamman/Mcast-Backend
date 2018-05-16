@@ -70,7 +70,7 @@ class Students extends MY_Controller {
 
 		$this->courses_model->add_student($id_card, $email, $name, $surname, $course, $link);
 
-		echo "Good Job you submitted a form correctly what do you want a cookie ? Now bugger off!!";
+		echo "The Student has been added";
 
         # 10. Redirect home
         redirect('students');
