@@ -102,6 +102,19 @@ $config = array(
             'field' => 'form_desc',
             'label' => 'Form_desc',
             'rules' => 'required'
+        ),
+        'add_timetable'   => array(
+            array(
+                'field' => 'timetable',
+                'label' => 'Timetable',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'level',
+                'label' => 'Level',
+                'rules' => 'required'
+            )
+
         )
 
     )

@@ -36,6 +36,22 @@ class Timetables extends MY_Controller {
 		$this->build('timetables/update');
 	}
 
+	public function add_timetable(){
+
+		//this command adds a timetable to the db
+		if ($this->fv->run('add_timetable') === FALSE)
+        {
+			echo validation_errors();
+            return;
+        }
+
+		$id 	= $this->input->post('course_id');
+		$name 	= $this->input->post('course_name');
+		$level 	= $this->input->post('course_lvl');
+
+		$this->load->model('Timetable_Model');		
+	}
+
 
 
 
