@@ -7,7 +7,7 @@ class Forms_Model extends CI_Model {
 
         $dataForm = array(
             'form_id'       => $id,
-            'form_name'     => $name
+            'form_name'     => $name,
             'form_desc'     => $desc
         );
         $this->db->insert('tbl_forms', $dataForm);

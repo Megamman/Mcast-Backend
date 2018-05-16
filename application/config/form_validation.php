@@ -78,6 +78,33 @@ $config = array(
             'label' => 'Link',
             'rules' => 'required'
         )
+    ),
+    'add_vacancy'   => array(
+        array(
+            'field' => 'jobName',
+            'label' => 'JobName',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'jobDesc',
+            'label' => 'JobDesc',
+            'rules' => 'required'
+        )
+
+    ),
+    'add_forms'   => array(
+        array(
+            'field' => 'form_name',
+            'label' => 'Form_name',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'form_desc',
+            'label' => 'Form_desc',
+            'rules' => 'required'
+        )
+
     )
+
 
 );

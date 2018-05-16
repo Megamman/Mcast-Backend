@@ -3,16 +3,21 @@
 </div>
 
 <div class="container">
-    <form>
+    <?=form_open('vacancy/add', array('class' => '')); ?>
         <div class="form-group">
             <label for="exampleInputJob">Job Title</label>
-            <input type="text" class="form-control" id="exampleInputJob" aria-describedby="jobHelp" placeholder="Enter Job Name">
+            <input type="text" class="form-control" id="exampleInputJob" name="jobName" placeholder="Enter Job Name">
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Job Description</label>
-            <textarea class="form-control" id="jobDesc" name="jobDesc" placeholder="Enter Description" rows="3"></textarea>
+            <textarea class="form-control" id="jobDesc" name="jobDesc" name="jobDesc" placeholder="Enter Description" rows="3"></textarea>
+         </div>
+
+         <div class="form-group">
+             <label for="exampleInputEndDate">End Date</label>
+             <input type="date" class="form-control" id="exampleInputNewsEndDate" name="jobEndDate" placeholder="Enter End Date">
          </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <?=form_close();?>
 </div>

@@ -50,7 +50,7 @@ class Forms extends MY_Controller {
 
 		$this->load->model('forms_model');
 
-		$this->courses_model->add_forms($id, $name, $desc);
+		$this->forms_model->add_forms($id, $name, $desc);
 
 		echo "The Form was added";
 

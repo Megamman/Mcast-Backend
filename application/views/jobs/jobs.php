@@ -28,16 +28,20 @@
                 </th>
                 <th scope="col">Job Title</th>
                 <th scope="col">Job Description</th>
+                <th scope="col">End Date</th>
+
             </tr>
         </thead>
         <tbody>
+            <?php foreach($jobs->result_array() as $job): ?>
             <tr>
-                <td scope="row">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </td>
-                <td>Position</td>
-                <td>what is the job</td>
+                <td>    <input type="checkbox" name="job[]" value="<?=$job['job_id']?>">    </td>
+                <td>    <?=$job['job_name'];?>                                              </td>
+                <td>    <?=$job['job_desc'];?>                                             </td>
+                <td>    <?=$job['job_end'];?>                                             </td>
             </tr>
+            <?php endforeach; ?>
+
         </tbody>
     </table>
 </div>

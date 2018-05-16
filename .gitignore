@@ -34,3 +34,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 css/style.css
 css/style.css
 css/style.min.css
+application/config/routes.php
