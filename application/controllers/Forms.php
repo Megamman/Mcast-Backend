@@ -44,7 +44,6 @@ class Forms extends MY_Controller {
             return;
         }
 
-		$id     	= $this->input->post('form_id');
 		$name     	= $this->input->post('form_name');
 		$desc    	= $this->input->post('form_desc');
 
@@ -52,7 +51,8 @@ class Forms extends MY_Controller {
 		chmod('uploads/forms', 0777);
 
 		$config['upload_path']          = './uploads/forms/';
-	   	$config['allowed_types']        = 'gif|jpg|png';
+		$config['file_name']          	= $name;
+	   	$config['allowed_types']        = 'jpg|png|pdf';
 	   	$config['max_size']             = 10000;
 		$this->load->model('forms_model');
 
