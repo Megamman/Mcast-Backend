@@ -3,14 +3,14 @@
 </div>
 
 <div class="container">
-    <?=form_open('forms/add', array('class' => '')); ?>
+    <?=form_open('forms/add_forms', array('class' => '')); ?>
         <div class="form-group">
             <label for="exampleInputName">Form Name</label>
-            <input type="text" class="form-control" id="formName" aria-describedby="formName" name="formnNme" placeholder="Upload Form Name">
+            <input type="text" class="form-control" id="formName" aria-describedby="formName" name="form_name" placeholder="Upload Form Name">
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Form Description</label>
-            <textarea class="form-control" id="formDesc" name="formDesc" placeholder="Enter Description" rows="3"></textarea>
+            <textarea class="form-control" id="formDesc" name="form_desc" placeholder="Enter Description" rows="3"></textarea>
          </div>
         <div class="form-group">
             <label for="exampleInputStartDate">Form</label>
