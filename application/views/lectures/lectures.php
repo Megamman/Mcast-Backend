@@ -28,7 +28,6 @@
                 </th>
                 <th scope="col">Full Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Start</th>
                 <th scope="col">End</th>
             </tr>
         </thead>
@@ -39,7 +38,6 @@
                 </td>
                 <td>Lecturer Name</td>
                 <td>Lecturer Email</td>
-                <td>Starting Date</td>
                 <td>Ending Date</td>
             </tr>
         </tbody>

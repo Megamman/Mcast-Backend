@@ -115,10 +115,13 @@ $config = array(
             'label' => 'Level',
             'rules' => 'required'
         )
-
-    )
-
-
+    ),
+    'lecturer'   => array(
+        array(
+            'field' => 'endDate',
+            'label' => 'EndDate',
+            'rules' => 'required'
+        )
     )
 
 

@@ -65,3 +65,5 @@ $route['student/add'] = 'students/add_student';
 $route['vacancy/add'] = 'jobs/add_vacancy';
 
 $route['timetables/add'] = 'timetables/add_timetable';
+
+$route['lectures/add'] = 'lectures/add_lecturer';

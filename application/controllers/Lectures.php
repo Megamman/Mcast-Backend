@@ -16,18 +16,28 @@ class Lectures extends MY_Controller {
 		$this->lectures();
 	}
 
-	function lectures()
-	{
+	function lectures(){
 		$data = array(
 			'links'		=> $this->lect_edit_links()
+
 		);
 		$this->build('lectures/lectures', $data);
 	}
 
 	public function add()
 	{
+
+		$this->load->model('lectures_model');
+
+		$data = array(
+			'lectures_list'		=> $this->lectures_model->get_lecturers(),
+			'dropdown_class'	=> array(
+									'class'	=> 'btn btn-secondary dropdown-toggle'
+			)
+		);
 		//this command loads a view from the views folder
-		$this->build('lectures/add');
+		$this->build('lectures/add', $data);
+
 	}
 
 	public function update(){
@@ -37,6 +47,33 @@ class Lectures extends MY_Controller {
 	}
 
 
+
+
+	public function add_lecturer()
+	{
+
+		# 1. Check the form for validation errors
+		if ($this->fv->run('lecturer') === FALSE)
+		{
+			echo validation_errors();
+			return;
+		}
+
+		# 2. Retrieve the first set of data
+		$email		= $this->input->post('lectures');
+		$endDate    = $this->input->post('endDate');
+
+		#3 add to db
+		$id = $this->lecturers_model->add_lecturer($email, $endDate);
+
+		#4 if id did not register, something went wrong
+		if($id === FALSE){
+			echo "We couldn't add listing because of a database error.";
+			return;
+		}
+
+		redirect ('lectures');
+	}
 
 
 

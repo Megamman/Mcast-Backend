@@ -65,7 +65,7 @@ class Register extends MY_Controller {
 			return;
 		}
 
-		redirect ('studentport');
+		redirect ('students');
     }
 
 }

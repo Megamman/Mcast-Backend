@@ -3,23 +3,17 @@
 </div>
 
 <div class="container">
-    <form>
+    <?=form_open('lectures/add'); ?>
         <div class="form-group">
-            <label for="exampleInputName">Full Name</label>
-            <input type="name" class="form-control" id="exampleInputName" aria-describedby="NameHelp" placeholder="Enter Name">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputName">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="EmailHelp" placeholder="Enter Email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputStartDate">Start Date</label>
-            <input type="date" class="form-control" id="exampleInputStartDate" aria-describedby="StartDateHelp" placeholder="Enter Start Date">
+            <label for="exampleInputCourse">Lecturer Email</label>
+            <?php
+            echo form_dropdown('lectures', $lectures_list, NULL, $dropdown_class);
+            ?>
         </div>
         <div class="form-group">
             <label for="exampleInputEndDate">End Date</label>
-            <input type="date" class="form-control" id="exampleInputNewsEndDate" aria-describedby="EndDateHelp" placeholder="Enter End Date">
+            <input type="date" class="form-control" id="exampleInputNewsEndDate" name="endDate" placeholder="Enter End Date">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <?=form_close();?>
 </div>
