@@ -23,7 +23,7 @@ class Lectures_Model extends CI_Model {
 
         $data = array(
             'tbl_login_id_login' => $email,
-            'lect_end'           => $endDate,
+            'lect_end'           => strtotime($endDate),
         );
         $this->db->insert('tbl_lects', $data);
         //gives us whatever the PK value is last

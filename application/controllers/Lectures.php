@@ -63,8 +63,10 @@ class Lectures extends MY_Controller {
 		$email		= $this->input->post('lectures');
 		$endDate    = $this->input->post('endDate');
 
+		$this->load->model('lectures_model');
+
 		#3 add to db
-		$id = $this->lecturers_model->add_lecturer($email, $endDate);
+		$id = $this->lectures_model->add_lecturer($email, $endDate);
 
 		#4 if id did not register, something went wrong
 		if($id === FALSE){

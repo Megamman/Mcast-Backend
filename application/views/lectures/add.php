@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-    <?=form_open('lectures/add'); ?>
+    <?=form_open('lectures/add_lecturer'); ?>
         <div class="form-group">
             <label for="exampleInputCourse">Lecturer Email</label>
             <?php
