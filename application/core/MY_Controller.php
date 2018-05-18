@@ -53,7 +53,7 @@ class MY_Controller extends CI_Controller {
 			array(
 				'icon'		=> 'fa-trash-alt',
 				'caption'	=> NULL,
-				'link'		=> 'students/boop'
+				'link'		=> 'students/delete_user'
 			),
 			array(
 				'icon'		=> NULL,

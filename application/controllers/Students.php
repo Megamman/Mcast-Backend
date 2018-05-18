@@ -52,6 +52,20 @@ class Students extends MY_Controller {
 		$this->build('student/update');
 	}
 
+	public function submit_form()
+	{
+		switch ($this->input->post('button'))
+		{
+			case 'delete':
+				$this->delete_user();
+				break;
+
+			//case 'update':
+				//$this->update();
+				//break;
+		}
+	}
+
 	public function add_student(){
         # 1. Check the form for validation errors
         if ($this->fv->run('add_student') === FALSE)
@@ -79,6 +93,16 @@ class Students extends MY_Controller {
 
     }
 
+	public function delete_user(){
+		$this->load->model('courses_model');
+
+		$user 	= $this->input->post('student');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
+
+		$this->courses_model->delete_user($user);
+
+		redirect('students');
+
+	}
 
 
 

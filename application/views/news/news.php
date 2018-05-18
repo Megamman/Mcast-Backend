@@ -32,14 +32,21 @@
             </tr>
         </thead>
         <tbody>
+<?php       foreach($news->result_array() as $news):
+            $filename = urlencode($news['news_title']);
+            $files = glob("uploads/news/{$filename}.*");
+            if (count($files) > 0) $files = $files[0];
+            else $files = "default.png";
+?>
             <tr>
                 <td scope="row">
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </td>
-                <td>New MCAST Website</td>
-                <td>About the new website....</td>
-                <td>@Image@</td>
+                <td> <?=$news['news_title'];?> </td>
+                <td> <?=$news['news_desc'];?> </td>
+                <td> <a href="<?=base_url($files)?>" target="_blank">View File</a></td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
