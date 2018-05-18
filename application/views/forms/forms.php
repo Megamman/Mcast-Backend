@@ -32,12 +32,18 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($forms->result_array() as $form): ?>
+<?php
+                foreach($forms->result_array() as $form):
+                    $filename = urlencode($form['form_name']);
+                    $files = glob("uploads/forms/{$filename}.*");
+                    if (count($files) > 0) $files = $files[0];
+                    else $files = "default.png";
+?>
                 <tr>
                     <td>    <input type="checkbox" name="form[]" value="<?=$form['form_id']?>">                             </td>
                     <td>    <?=$form['form_name'];?>                                                                        </td>
                     <td>    <?=$form['form_desc'];?>                                                                        </td>
-                    <td>   to ask sir                                                                                 </td>
+                    <td>    <a href="<?=base_url($files)?>" target="_blank">View File</a></td>
 
                 </tr>
             <?php endforeach; ?>

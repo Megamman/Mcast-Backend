@@ -55,7 +55,7 @@ class Forms extends MY_Controller {
 		chmod('uploads/forms', 0777);
 
 		$config['upload_path']          = './uploads/forms/';
-		$config['file_name']          	= $name;
+		$config['file_name']          	= urlencode($name);
 	   	$config['allowed_types']        = 'jpg|png|pdf';
 	   	$config['max_size']             = 10000;
 		$this->load->model('forms_model');
