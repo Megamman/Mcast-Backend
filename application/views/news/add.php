@@ -3,19 +3,19 @@
 </div>
 
 <div class="container">
-    <form>
+    <?=form_open_multipart('news/add_news', array('class' => '')); ?>
         <div class="form-group">
             <label for="exampleInputNews">News Title</label>
-            <input type="text" class="form-control" id="exampleInputNews" placeholder="Enter News Title">
+            <input type="text" class="form-control" name="newsTitle" id="exampleInputNews" placeholder="Enter News Title">
         </div>
         <div class="form-group">
             <label for="exampleInputDescription">Description</label>
-            <input type="text" class="form-control" id="exampleInputDescription" placeholder="Enter Description">
+            <textarea class="form-control" name="newsDecs" id="exampleInputDescription" placeholder="Enter Description" rows="3"></textarea>
         </div>
         <div class="form-group">
             <label for="exampleInputNewsImage">Image</label>
-            <input type="file" class="form-control" id="exampleInputNewsImage" placeholder="Upload Image">
+            <input type="file" class="form-control" id="exampleInputNewsImage" name="userfile" placeholder="Upload Image">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <?=form_close();?>
 </div>

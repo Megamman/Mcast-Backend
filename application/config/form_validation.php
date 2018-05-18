@@ -122,6 +122,18 @@ $config = array(
             'label' => 'EndDate',
             'rules' => 'required'
         )
+    ),
+    'add_news'   => array(
+        array(
+            'field' => 'newsTitle',
+            'label' => 'NewsTitle',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'newsDecs',
+            'label' => 'NewsDecs',
+            'rules' => 'required'
+        )
     )
 
 

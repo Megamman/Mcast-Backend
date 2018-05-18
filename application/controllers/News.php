@@ -36,6 +36,42 @@ class News extends MY_Controller {
 		$this->build('news/update');
 	}
 
+	public function add_news(){
+
+		if ($this->fv->run('add_news') === FALSE)
+        {
+			echo validation_errors();
+            return;
+        }
+
+		$title			= $this->input->post('newsTitle');
+		$desc			= $this->input->post('newsDecs');
+
+		chmod('uploads', 0777);
+		chmod('uploads/news', 0777);
+
+		$config['upload_path']          = './uploads/news/';
+		$config['file_name']          	= $title;
+	   	$config['allowed_types']        = 'jpg|png|pdf';
+	   	$config['max_size']             = 10000;
+		$this->load->model('news_model');
+
+		$this->news_model->add_news($title, $desc);
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('userfile'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+
+				$this->load->view('news', $error);
+		}
+
+		echo "The News was added";
+
+		redirect('news');
+
+	}
+
 
 
 
