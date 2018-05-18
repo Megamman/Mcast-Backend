@@ -5,18 +5,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['permissions'] = array(
     'admin' => array(
-        'ACCESS_WELCOME_PAGE'  => TRUE,
-        'ACCESS_SECRET_PAGE'   => TRUE,
-        'EDIT_SECRET_MESSAGE'  => TRUE
+        'ACCESS_ADMIN'      => TRUE,
+        'ACCESS_LECTURER'   => TRUE,
+        'ACCESS_STUDENT'    => TRUE
     ),
-
-    'Lecturer' => array(
-        'ACCESS_WELCOME_PAGE'  => TRUE,
-        'ACCESS_SECRET_PAGE'   => FALSE
+    'lecturer' => array(
+        'ACCESS_ADMIN'      => FALSE,
+        'ACCESS_LECTURER'   => TRUE,
+        'ACCESS_STUDENT'    => FALSE
     ),
-    'Student' => array(
-        'ACCESS_WELCOME_PAGE'  => TRUE,
-        'ACCESS_SECRET_PAGE'   => FALSE
+    'students' => array(
+        'ACCESS_ADMIN'      => FALSE,
+        'ACCESS_LECTURER'   => FALSE,
+        'ACCESS_STUDENT'    => TRUE
     )
 );
 
