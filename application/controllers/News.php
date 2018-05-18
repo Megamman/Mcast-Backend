@@ -18,8 +18,11 @@ class News extends MY_Controller {
 
 	function news()
 	{
+		$this->load->model('news_model');
+
 		$data = array(
-			'links'		=> $this->news_edit_links()
+			'links'		=> $this->news_edit_links(),
+			'news' 		=> $this->news_model->get_news()
 		);
 		$this->build('news/news', $data);
 	}

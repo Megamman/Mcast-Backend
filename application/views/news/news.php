@@ -32,14 +32,16 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach($news->result_array() as $news): ?>
             <tr>
                 <td scope="row">
                     <input type="checkbox" aria-label="Checkbox for following text input">
                 </td>
-                <td>New MCAST Website</td>
-                <td>About the new website....</td>
+                <td> <?=$news['news_title'];?> </td>
+                <td> <?=$news['news_desc'];?> </td>
                 <td>@Image@</td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

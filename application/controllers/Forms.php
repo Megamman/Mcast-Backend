@@ -24,7 +24,6 @@ class Forms extends MY_Controller {
 		$data = array(
 			'links'		=> $this->form_edit_links(),
 			'forms' 	=> $this->forms_model->get_forms()
-
 		);
 		$this->build('forms/forms', $data);
 	}
