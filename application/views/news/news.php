@@ -37,7 +37,6 @@
             $files = glob("uploads/news/{$filename}.*");
             if (count($files) > 0) $files = $files[0];
             else $files = "default.png";
-
 ?>
             <tr>
                 <td scope="row">

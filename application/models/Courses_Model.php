@@ -19,10 +19,10 @@ class Courses_Model extends CI_Model {
         return $array;
 
     }
-    
+
     # Deletes a user from the database
-    public function delete_user($id){
-        $this->db->delete('tbl_login', array('id_login' => $id));
+    public function delete_user($user){
+        $this->db->where_in('id_login', $user)->delete('tbl_login');
     }
 
     public function add_student($id_card, $email, $name, $surname, $course, $link) {
