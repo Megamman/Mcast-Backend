@@ -31,5 +31,21 @@ class Lectures_Model extends CI_Model {
         return $this->db->insert_id();
     }
 
+    public function get_lecturers_for_table(){
+
+        return $this->db->select('  tbl_lects.lect_end,
+
+                                    tbl_login.email_login,
+
+                                    tbl_users.user_name')
+
+                        ->join('tbl_login',     'tbl_login.id_login             = tbl_lects.tbl_login_id_login',        'left')
+                        ->join('tbl_users',     'tbl_users.tbl_login_id_login   = tbl_login.id_login',                  'left')
+                        ->get('tbl_lects');
+
+
+    }
+
+
 
 }
