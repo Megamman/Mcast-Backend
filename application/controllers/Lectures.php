@@ -17,10 +17,14 @@ class Lectures extends MY_Controller {
 	}
 
 	function lectures(){
-		$data = array(
-			'links'		=> $this->lect_edit_links()
 
+		$this->load->model('lectures_model');
+
+		$data = array(
+			'links'			=> $this->lect_edit_links(),
+			'lectures' 		=> $this->lectures_model->get_lecturers_for_table()
 		);
+
 		$this->build('lectures/lectures', $data);
 	}
 

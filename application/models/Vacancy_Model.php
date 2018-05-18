@@ -28,4 +28,6 @@ class Vacancy_Model extends CI_Model {
     }
 
 
+    
+
 }

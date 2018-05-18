@@ -23,23 +23,20 @@
     <table class="table table-sm  ">
         <thead>
             <tr class="table-active">
-                <th scope="row">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </th>
+
                 <th scope="col">Full Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">End</th>
             </tr>
         </thead>
         <tbody>
+            <?php foreach($lectures->result_array() as $lect): ?>
             <tr>
-                <td scope="row">
-                    <input type="checkbox" aria-label="Checkbox for following text input">
-                </td>
-                <td>Lecturer Name</td>
-                <td>Lecturer Email</td>
-                <td>Ending Date</td>
+                <td>    <?=$lect['user_name'];?>                     </td>
+                <td>    <?=$lect['email_login'];?>                   </td>
+                <td>    <?=date('d M Y', $lect['lect_end']);?>        </td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
