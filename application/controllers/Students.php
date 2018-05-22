@@ -112,6 +112,12 @@ class Students extends MY_Controller {
 
 	public function edit($id = NULL){
 
+		if ($id === 'submit')
+		{
+			$this->edit_submit();
+			return;
+		}
+
 	$this->load->model('courses_model');
 	$user = $this->courses_model->get_user($id);
 
@@ -132,7 +138,11 @@ class Students extends MY_Controller {
 							'hidden'	=> 	array('user_id' => $user['user_id']
 						)
 		),
-		'form' => $this->user_form($user)
+		'form' => $this->user_form($user),
+		'course_list'		=> $this->courses_model->all(),
+		'dropdown_class'	=> array(
+								'class'	=> 'btn btn-secondary dropdown-toggle'
+							)
 	);
 	//the page itself
 	$this->build('student/update', $data);
@@ -148,7 +158,7 @@ class Students extends MY_Controller {
 
 		//this instead of
 
-		if ($this->fv->run('add_student') === FALSE)
+		if ($this->fv->run('edit_student') === FALSE)
 		{
 			echo validation_errors();
 			return;
@@ -156,6 +166,12 @@ class Students extends MY_Controller {
 
 		$id_card = $this->input->post('user_id');
 
+		$id_card = $this->input->post('id_card');
+		$email = $this->input->post('email');
+		$name = $this->input->post('name');
+		$surname = $this->input->post('surname');
+		$course = $this->input->post('course');
+		$link = $this->input->post('link');
 
 		//update the user
 		if(!$this->courses_model->update_user($id_card, $email, $name, $surname, $course, $link)){
@@ -179,9 +195,9 @@ class Students extends MY_Controller {
 			);
 		}
 		return array(
-			'user_id' => array(
+			'ID Number' => array(
 				'type' 				=> 'text',
-				'name' 				=> 'user_id',
+				'name' 				=> 'id_card',
 				'placeholder' 		=> '555555M',
 				'id' 				=> 'exampleInputID',
 				'required' 			=> TRUE,

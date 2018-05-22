@@ -65,5 +65,3 @@ $route['student/add'] = 'students/add_student';
 $route['vacancy/add'] = 'jobs/add_vacancy';
 
 $route['timetables/add'] = 'timetables/add_timetable';
-
-$route['students/edit/submit'] = 'students/edit_submit';
