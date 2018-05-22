@@ -91,8 +91,8 @@ class Courses_Model extends CI_Model {
                         ->join('tbl_users',     'tbl_users.tbl_login_id_login   = tbl_login.id_login',        'left')
                         ->join('tbl_std',       'tbl_std.tbl_login_id_login     = tbl_login.id_login',        'left')
                         ->join('tbl_courses',   'tbl_std.tbl_courses_course_id  = tbl_courses.course_id',     'left')
-                        ->where('tbl_login.id_login', $id);
-                        ->get('tbl_login');
+                        ->where('tbl_login.user_id', $id)
+                        ->get('tbl_login')
                         ->row_array();
 
 

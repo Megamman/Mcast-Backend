@@ -3,10 +3,8 @@
 </div>
 
 <div class="container">
-    <?=form_open('student/add', array('class' => '')); ?>
-    <?php foreach($users->result_array() as $user): ?>
-
-        <div class="form-group">
+    <?=form_open($properties['action'], NULL, $properties['hidden'])?>
+      <?php foreach ($form as $key => $input):?>        <div class="form-group">
             <label for="exampleInputID">ID no.</label>
             <input type="ID" class="form-control" id="exampleInputID"  value="<?=$user['user_id'];?>" name="id_card">
         </div>
@@ -32,8 +30,6 @@
             <label for="exampleInputStuLink">Links</label>
             <input type="Link" class="form-control" id="exampleInputStuLink"  value="<?=$user['std_link'];?>" name="link">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    <?php endforeach; ?>
-
-    <?=form_close();?>
-</div>
+        <?=form_submit(null,"Submit")?>
+      <?=form_close()?>
+  </div>

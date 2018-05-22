@@ -110,13 +110,7 @@ class Students extends MY_Controller {
 		$this->build('student/update', $data);
 	}*/
 
-	public function edit($id_card = NULL){
-
-	// $id can be the word 'submit'. if so, we can just use the edit_submit function.
-	if ($id_card == 'submit') {
-		$this->edit_submit();
-		return;
-	}
+	public function edit($id = NULL){
 
 	$this->load->model('courses_model');
 	$user = $this->courses_model->get_user($id);
@@ -134,14 +128,14 @@ class Students extends MY_Controller {
 	// this array will contain all the inputs we will need
 	$data = array(
 		'properties'	=> array(
-							'action'	=> 'welcome/edit/submit',
-							'hidden'	=> 	array('user_id' => $user['id']
+							'action'	=> 'students/edit/submit',
+							'hidden'	=> 	array('user_id' => $user['user_id']
 						)
 		),
 		'form' => $this->user_form($user)
 	);
 	//the page itself
-	$this->build('form', $data);
+	$this->build('student/update', $data);
 
 	}
 
@@ -162,9 +156,6 @@ class Students extends MY_Controller {
 
 		$id_card = $this->input->post('user_id');
 
-		//set the rules
-		$this->form_validation->set_rules($rules);
-
 
 		//update the user
 		if(!$this->courses_model->update_user($id_card, $email, $name, $surname, $course, $link)){
@@ -174,6 +165,61 @@ class Students extends MY_Controller {
 
 		//reload the page
 		$this->edit($id_card);
+	}
+
+	private function user_form($user = NULL){
+
+		if($user == NULL){
+			$user = array (
+				'user_id' 		=> NULL,
+				'user_name' 	=> NULL,
+				'user_surname' 	=> NULL,
+				'email_login' 	=> NULL,
+				'std_link'		=> NULL
+			);
+		}
+		return array(
+			'user_id' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'user_id',
+				'placeholder' 		=> '555555M',
+				'id' 				=> 'exampleInputID',
+				'required' 			=> TRUE,
+				'value'				=> set_value('user_id', $user['user_id'])
+			),
+			'user_name' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'name',
+				'placeholder' 		=> 'Johnny',
+				'id' 				=> 'exampleInputName',
+				'required' 			=> TRUE,
+				'value'				=> set_value('user_name',$user['user_name'])
+			),
+			'user_surname' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'surname',
+				'placeholder' 		=> 'Borg',
+				'id' 				=> 'exampleInputSurname',
+				'required' 			=> TRUE,
+				'value'				=> set_value('user_surname', $user['user_surname'])
+			),
+			'email_login' => array(
+				'type' 				=> 'email',
+				'name' 				=> 'email',
+				'placeholder' 		=> 'jay@gmail.com',
+				'id' 				=> 'exampleInputEmail',
+				'required' 			=> TRUE,
+				'value'				=> set_value('email_login', $user['email_login'])
+			),
+			'std_link' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'link',
+				'placeholder' 		=> 'jay.behance.com',
+				'id' 				=> 'exampleInputStuLink',
+				'required' 			=> TRUE,
+				'value'				=> set_value('std_link', $user['std_link'])
+			)
+		);
 	}
 
 
