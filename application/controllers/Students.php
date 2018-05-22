@@ -9,7 +9,7 @@ class Students extends MY_Controller {
 		// without this, we won't  be able to...
 		// this->build our pages.
 		parent::__construct();
-		//$this->has_permission('ACCESS_LECTURER') or show_404();
+		$this->has_permission('ACCESS_LECTURER') or show_404();
 
 	}
 
@@ -99,16 +99,7 @@ class Students extends MY_Controller {
 	}
 
 
-//	to check with sir !!!!!
-	/*public function update(){
-		$this->load->model('courses_model');
 
-		$data = array(
-			'users' 	=> $this->courses_model->get_student()
-		);
-		//this command loads a view from the views folder
-		$this->build('student/update', $data);
-	}*/
 
 	public function edit($id = NULL, $extra = NULL){
 
@@ -127,8 +118,6 @@ class Students extends MY_Controller {
 		return;
 	}
 
-
-	// to ask SIR ABOUT THE BELOW
 	// load the form helper to get the function isndie the file otherwise known as a plugin
 	$this->load->helper('form');
 	// this array will contain all the inputs we will need

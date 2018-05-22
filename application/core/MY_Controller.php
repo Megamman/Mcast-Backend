@@ -180,7 +180,7 @@ class MY_Controller extends CI_Controller {
         }
         else if (!$check && $cont != 'home')
         {
-            redirect('/');
+            redirect('http://icabackend.local/');
         }
     }
 

@@ -98,9 +98,11 @@ class News extends MY_Controller {
 
 		$this->news_model->delete_news($new);
 
-		//to ask sir how to remove file from server which matches the name of the news
 
-		$files = glob("folder/{$name}.*");
+
+
+		//to ask sir how to remove file from server which matches the name of the news
+		$files = glob("../uploads/news/{$name}.*");
 		foreach ($files as $file) unlink($file);
 
 		redirect('news');
