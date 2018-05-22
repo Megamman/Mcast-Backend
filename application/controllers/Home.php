@@ -82,7 +82,7 @@ class Home extends MY_Controller {
 	}
 
 	#This will go in MY_Controller
-	protected function nav_links()
+	/*protected function nav_links()
 	{
 		$nav = array();
 		$nav['Home']	= '/';
@@ -100,6 +100,7 @@ class Home extends MY_Controller {
 
 		return $nav;
 	}
+	*/
 
 
 
