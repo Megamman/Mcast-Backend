@@ -110,13 +110,13 @@ class Students extends MY_Controller {
 		$this->build('student/update', $data);
 	}*/
 
-	public function edit($id_card = NULL){
+	public function edit($id = NULL, $extra = NULL){
 
-	// $id can be the word 'submit'. if so, we can just use the edit_submit function.
-	if ($id_card == 'submit') {
-		$this->edit_submit();
-		return;
-	}
+		if ($id === 'submit')
+		{
+			$this->edit_submit($extra);
+			return;
+		}
 
 	$this->load->model('courses_model');
 	$user = $this->courses_model->get_user($id);
@@ -134,18 +134,22 @@ class Students extends MY_Controller {
 	// this array will contain all the inputs we will need
 	$data = array(
 		'properties'	=> array(
-							'action'	=> 'welcome/edit/submit',
-							'hidden'	=> 	array('user_id' => $user['id']
+							'action'	=> "students/edit/submit/{$id}",
+							'hidden'	=> 	array('user_id' => $user['user_id']
 						)
 		),
-		'form' => $this->user_form($user)
+		'form' => $this->user_form($user),
+		'course_list'		=> $this->courses_model->all(),
+		'dropdown_class'	=> array(
+								'class'	=> 'btn btn-secondary dropdown-toggle'
+							)
 	);
 	//the page itself
-	$this->build('form', $data);
+	$this->build('student/update', $data);
 
 	}
 
-	private function edit_submit(){
+	private function edit_submit($id){
 
 		//load the form_validation library
 		$this->load->library('form_validation');
@@ -154,26 +158,83 @@ class Students extends MY_Controller {
 
 		//this instead of
 
-		if ($this->fv->run('add_student') === FALSE)
+		if ($this->fv->run('edit_student') === FALSE)
 		{
 			echo validation_errors();
 			return;
 		}
 
-		$id_card = $this->input->post('user_id');
-
-		//set the rules
-		$this->form_validation->set_rules($rules);
-
+		$id_card = $this->input->post('id_card');
+		$email = $this->input->post('email');
+		$name = $this->input->post('name');
+		$surname = $this->input->post('surname');
+		$course = $this->input->post('course');
+		$link = $this->input->post('link');
 
 		//update the user
-		if(!$this->courses_model->update_user($id_card, $email, $name, $surname, $course, $link)){
-			$this->edit($id_card);
+		$check = $this->courses_model->update_user($id, $id_card, $email, $name, $surname, $course, $link);
+		if(!$check){
+			$this->edit($id);
 			return;
 		}
 
 		//reload the page
-		$this->edit($id_card);
+		redirect("students/edit/{$id}");
+	}
+
+	private function user_form($user = NULL){
+
+		if($user == NULL){
+			$user = array (
+				'user_id' 		=> NULL,
+				'user_name' 	=> NULL,
+				'user_surname' 	=> NULL,
+				'email_login' 	=> NULL,
+				'std_link'		=> NULL
+			);
+		}
+		return array(
+			'ID Number' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'id_card',
+				'placeholder' 		=> '555555M',
+				'id' 				=> 'exampleInputID',
+				'required' 			=> TRUE,
+				'value'				=> set_value('user_id', $user['user_id'])
+			),
+			'user_name' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'name',
+				'placeholder' 		=> 'Johnny',
+				'id' 				=> 'exampleInputName',
+				'required' 			=> TRUE,
+				'value'				=> set_value('user_name',$user['user_name'])
+			),
+			'user_surname' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'surname',
+				'placeholder' 		=> 'Borg',
+				'id' 				=> 'exampleInputSurname',
+				'required' 			=> TRUE,
+				'value'				=> set_value('user_surname', $user['user_surname'])
+			),
+			'email_login' => array(
+				'type' 				=> 'email',
+				'name' 				=> 'email',
+				'placeholder' 		=> 'jay@gmail.com',
+				'id' 				=> 'exampleInputEmail',
+				'required' 			=> TRUE,
+				'value'				=> set_value('email_login', $user['email_login'])
+			),
+			'std_link' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'link',
+				'placeholder' 		=> 'jay.behance.com',
+				'id' 				=> 'exampleInputStuLink',
+				'required' 			=> TRUE,
+				'value'				=> set_value('std_link', $user['std_link'])
+			)
+		);
 	}
 
 

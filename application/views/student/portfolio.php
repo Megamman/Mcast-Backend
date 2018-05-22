@@ -44,7 +44,7 @@
                             <td>    <?=$user['course_name'];?>    </td>
                             <td>    <?=$user['course_lvl'];?>    </td>
                             <td>    <?=$user['std_link'];?>    </td>
-                            <td><?=anchor("students/edit/{$user['user_id']}", "Edit");?></td> <!-- anchor is the a href. -->
+                            <td><?=anchor("students/edit/{$user['id_login']}", "Edit");?></td> <!-- anchor is the a href. -->
                         </tr>
                 <?php endforeach; ?>
             </tbody>

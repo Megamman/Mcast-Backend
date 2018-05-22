@@ -134,6 +134,38 @@ $config = array(
             'label' => 'NewsDecs',
             'rules' => 'required'
         )
+    ),
+    'edit_student'   => array(
+        array(
+            'field' => 'id_card',
+            'label' => 'Id_card',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'name',
+            'label' => 'Name',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'surname',
+            'label' => 'Surname',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'email',
+            'label' => 'Email',
+            'rules' => 'required|valid_email'
+        ),
+        array(
+            'field' => 'course',
+            'label' => 'Course',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'link',
+            'label' => 'Link',
+            'rules' => 'required'
+        )
     )
 
 
