@@ -65,21 +65,6 @@ class Home extends MY_Controller {
 
     }
 
-	function nav()
-	{
-
-		#if we're using hard-coded navs, we need the perms
-		$role = strtolower($this->session->userdata('role'));
-
-		$data = array(
-			'nav' 			=> $this->nav_links(),
-			#the below is for hardcoded nav links
-			'permissions'	=> $this->config->item('permissions')[$role]
-		);
-
-		//$this->load->view('nav_page', $data);
-
-	}
 
 	#This will go in MY_Controller
 	/*protected function nav_links()

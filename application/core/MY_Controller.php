@@ -9,14 +9,13 @@ class MY_Controller extends CI_Controller {
     //is called/used when the class loads
 
 
-    function __contruct(){
+    function __construct(){
         //required
         //load the parent into its child
         //will add the plugins from autoload
-        parent:: __contruct();
+        parent::__construct();
         $this->can_access();
         $this->config->load('permissions');
-
     }
 
     //we can use this to replace $this->load->view
@@ -153,7 +152,7 @@ class MY_Controller extends CI_Controller {
 			array(
 				'icon'		=> 'fa-trash-alt',
 				'caption'	=> NULL,
-				'link'		=> 'forms/boop'
+				'link'		=> 'forms/forms'
 			),
 			array(
 				'icon'		=> NULL,
@@ -171,18 +170,18 @@ class MY_Controller extends CI_Controller {
         $cont = $this->router->class;
         $page = $this->router->method;
 
+
         $check = $this->check_login();
 
         # Check for every page I have to be logged in/out
-        if ($check && $cont == 'login' && $page != 'logout')
+        if ($check && $cont == 'home' && $page != 'logout')
+        {
+            redirect('students');
+        }
+        else if (!$check && $cont != 'home')
         {
             redirect('/');
         }
-        else if (!$check && $cont != 'login')
-        {
-            redirect('/login/');
-        }
-
     }
 
     protected function check_login()
@@ -191,7 +190,7 @@ class MY_Controller extends CI_Controller {
         $data = $this->session->userdata;
 
         # 2.Stop here if there is no Session data
-        if (!array_key_exists('session_code', $data))
+        if (!array_key_exists('u_persistence', $data))
         {
             return FALSE;
         }
@@ -218,10 +217,10 @@ class MY_Controller extends CI_Controller {
         if(is_int($p_name)) return FALSE;
 
         #2. Retriece the information we need
-        $p_name = strtoupper($p_name);
-        $role = strtolower($this->session->userdata('role'));
-        $permissions = $this->config->item('permissions')[$role];
-        if ($permissions == NULL) return TRUE;
+        $p_name         = strtoupper($p_name);
+        $role           = strtolower($this->session->userdata('name'));
+        $permissions    = $this->config->item('permissions')[$role];
+        if ($permissions == NULL) return FALSE;
 
         #3. Check that the permission item actually array_key_exists
         if (!array_key_exists($p_name, $permissions)) return FALSE;

@@ -9,7 +9,7 @@ class News extends MY_Controller {
 		// without this, we won't  be able to...
 		// this->build our pages.
 		parent::__construct();
-		//$this->has_permission('ACCESS_LECTURER') or show_404();
+		$this->has_permission('ACCESS_LECTURER') or show_404();
 
 	}
 
