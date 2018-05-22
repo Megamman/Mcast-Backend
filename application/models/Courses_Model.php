@@ -76,7 +76,10 @@ class Courses_Model extends CI_Model {
                         ->get('tbl_login');
     }
 
-    public function get_student($id){
+    public function get_user($id){
+        //return $this->db->get_where('tbl_users', array('id' => $id));
+
+        //run a query and return the row immediately
         return $this->db->select('  tbl_login.id_login,
                                     tbl_login.user_id,
                                     tbl_users.user_name,
@@ -88,7 +91,14 @@ class Courses_Model extends CI_Model {
                         ->join('tbl_users',     'tbl_users.tbl_login_id_login   = tbl_login.id_login',        'left')
                         ->join('tbl_std',       'tbl_std.tbl_login_id_login     = tbl_login.id_login',        'left')
                         ->join('tbl_courses',   'tbl_std.tbl_courses_course_id  = tbl_courses.course_id',     'left')
+                        ->where('tbl_login.id_login', $id);
                         ->get('tbl_login');
+                        ->row_array();
+
+
     }
+
+
+
 
 }
