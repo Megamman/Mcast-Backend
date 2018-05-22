@@ -98,6 +98,8 @@ class News extends MY_Controller {
 
 		$this->news_model->delete_news($new);
 
+		//to ask sir how to remove file from server which matches the name of the news
+
 		redirect('news');
 
 	}
