@@ -4,32 +4,36 @@
 
 <div class="container">
     <?=form_open('student/add', array('class' => '')); ?>
+    <?php foreach($users->result_array() as $user): ?>
+
         <div class="form-group">
             <label for="exampleInputID">ID no.</label>
-            <input type="ID" class="form-control" id="exampleInputID" aria-describedby="idHelp" name="id_card" placeholder="Enter Student ID no.">
+            <input type="ID" class="form-control" id="exampleInputID"  value="<?=$user['user_id'];?>" name="id_card">
         </div>
         <div class="form-group">
             <label for="exampleInputName">Name</label>
-            <input type="Name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="name" placeholder="Enter Student Name">
+            <input type="Name" class="form-control" id="exampleInputName" value="<?=$user['user_name'];?>" name="name">
         </div>
         <div class="form-group">
             <label for="exampleInputSurname">Surname</label>
-            <input type="Surname" class="form-control" id="exampleInputSurname" aria-describedby="surnameHelp" name="surname" placeholder="Enter Student Surname">
+            <input type="Surname" class="form-control" id="exampleInputSurname" value="<?=$user['user_surname'];?>" name="surname">
         </div>
         <div class="form-group">
             <label for="exampleInputName">Email</label>
-            <input type="Email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" name="email" placeholder="Enter Student Email">
+            <input type="Email" class="form-control" id="exampleInputEmail" value="<?=$user['email_login'];?>" name="email">
         </div>
-        <!-- <div class="form-group">
+        <div class="form-group">
             <label for="exampleInputCourse">Course</label>
             <?php
             echo form_dropdown('course', $course_list, NULL, $dropdown_class);
             ?>
-        </div>-->
+        </div>
         <div class="form-group">
             <label for="exampleInputStuLink">Links</label>
-            <input type="Link" class="form-control" id="exampleInputStuLink" aria-describedby="linkHelp" name="link" placeholder="Enter Student Link">
+            <input type="Link" class="form-control" id="exampleInputStuLink"  value="<?=$user['std_link'];?>" name="link">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+    <?php endforeach; ?>
+
     <?=form_close();?>
 </div>

@@ -19,6 +19,7 @@
 
     <?=form_open('students/submit_form')?>
         <button type="submit" name="button" value="delete">Delete</button>
+        <button type="submit" name="button" value="update">Update</button>
         <table class="table table-sm">
             <thead>
                 <tr class="table-active">

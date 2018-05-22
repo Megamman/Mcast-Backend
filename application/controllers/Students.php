@@ -46,12 +46,6 @@ class Students extends MY_Controller {
 		$this->build('student/add', $data);
 	}
 
-	public function update(){
-
-		//this command loads a view from the views folder
-		$this->build('student/update');
-	}
-
 	public function submit_form()
 	{
 		switch ($this->input->post('button'))
@@ -60,9 +54,9 @@ class Students extends MY_Controller {
 				$this->delete_user();
 				break;
 
-			//case 'update':
-				//$this->update();
-				//break;
+			case 'update':
+				$this->update();
+				break;
 		}
 	}
 
@@ -104,6 +98,15 @@ class Students extends MY_Controller {
 
 	}
 
+	public function update(){
+		$this->load->model('courses_model');
+
+		$data = array(
+			'users' 	=> $this->courses_model->get_student()
+		);
+		//this command loads a view from the views folder
+		$this->build('student/update', $data);
+	}
 
 
 
