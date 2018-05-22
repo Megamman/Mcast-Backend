@@ -102,7 +102,8 @@ class News extends MY_Controller {
 
 
 		//to ask sir how to remove file from server which matches the name of the news
-		$files = glob("../uploads/news/{$name}.*");
+		$files = glob("uploads/news/{$name}.*");
+
 		foreach ($files as $file) unlink($file);
 
 		redirect('news');
