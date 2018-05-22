@@ -14,7 +14,7 @@
         <div class="container wrap">
             <div class="child">
                 <img src="<?=base_url('images/MCAST-Main.png')?>" alt="" class="mx-auto mt-5 d-block test" width="400px">
-                <?=form_open('login/submit', array('class' => 'px-4 py-3 login-box')); ?>
+                <?=form_open('home/login_submit', array('class' => 'px-4 py-3 login-box')); ?>
                 <div class="mx-auto" style="width: 300px">
                         <div class="form-group">
                             <input type="email" name="email" class="form-control text-center" id="exampleDropdownFormEmail2" placeholder="Email">

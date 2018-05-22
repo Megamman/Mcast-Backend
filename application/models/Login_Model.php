@@ -94,7 +94,7 @@ class Login_Model extends CI_Model {
                                   tbl_login_info.u_persistence')
                         ->join('tbl_users', 'tbl_users.tbl_login_id_login = tbl_login.id_login', 'left')
                         ->join('tbl_login_info', 'tbl_login_info.tbl_login_id_login = tbl_login.id_login', 'left')
-                        ->join('tbl_roles', 'tbl_roles.id = tbl_login.tbl_role_id', 'left')
+                        ->join('tbl_roles', 'tbl_roles.id = tbl_login.tbl_roles_id', 'left')
                         ->where('tbl_login.id_login', $id)
                         ->get('tbl_login')
                         ->row_array();
@@ -105,7 +105,7 @@ class Login_Model extends CI_Model {
     {
         $data = array(
             'tbl_login_id_login'    => $id,
-            'user_creation'         => time(),
+            'user_time'             => time(),
             'u_persistence'         => $code
         );
         $this->db->insert('tbl_login_info', $data);
@@ -122,7 +122,7 @@ class Login_Model extends CI_Model {
         );
 
         return $this->db->select('tbl_login.id_login')
-                        ->join('tbl_login_info', 'tbl_login_info.tbl_login_id_login = tbl_login.id_login', 'left')
+                        ->join('tbl_login_info', 'tbl_login_info.tbl_login_id_login' == 'tbl_login.id_login', 'left')
                         ->get_where('tbl_login', $data)
                         ->num_rows() == 1;
     }
