@@ -32,7 +32,7 @@ class Home extends MY_Controller {
 
         # 3. Use the system model to verify the password
         # This avoids exposing information.
-        $check = $this->system->check_password($email, $password);
+        $check = $this->login->check_password($email, $password);
 
         # 4. If check came back as FALSE, the password is wrong
         if ($check === False)
@@ -45,7 +45,7 @@ class Home extends MY_Controller {
         $code = bin2hex($this->encryption->create_key(16));
 
         # 6. Try to log in.
-        $data = $this->system->set_login_data($check, $code);
+        $data = $this->login->set_login_data($check, $code);
 
         # 7. If there's an error, stop here
         if($data === FALSE)
@@ -101,7 +101,4 @@ class Home extends MY_Controller {
 		return $nav;
 	}
 	*/
-
-
-
 }

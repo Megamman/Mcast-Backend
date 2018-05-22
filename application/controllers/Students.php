@@ -110,11 +110,11 @@ class Students extends MY_Controller {
 		$this->build('student/update', $data);
 	}*/
 
-	public function edit($id = NULL){
+	public function edit($id = NULL, $extra = NULL){
 
 		if ($id === 'submit')
 		{
-			$this->edit_submit();
+			$this->edit_submit($extra);
 			return;
 		}
 
@@ -134,7 +134,7 @@ class Students extends MY_Controller {
 	// this array will contain all the inputs we will need
 	$data = array(
 		'properties'	=> array(
-							'action'	=> 'students/edit/submit',
+							'action'	=> "students/edit/submit/{$id}",
 							'hidden'	=> 	array('user_id' => $user['user_id']
 						)
 		),
@@ -149,7 +149,7 @@ class Students extends MY_Controller {
 
 	}
 
-	private function edit_submit(){
+	private function edit_submit($id){
 
 		//load the form_validation library
 		$this->load->library('form_validation');
@@ -164,8 +164,6 @@ class Students extends MY_Controller {
 			return;
 		}
 
-		$id_card = $this->input->post('user_id');
-
 		$id_card = $this->input->post('id_card');
 		$email = $this->input->post('email');
 		$name = $this->input->post('name');
@@ -174,13 +172,14 @@ class Students extends MY_Controller {
 		$link = $this->input->post('link');
 
 		//update the user
-		if(!$this->courses_model->update_user($id_card, $email, $name, $surname, $course, $link)){
-			$this->edit($id_card);
+		$check = $this->courses_model->update_user($id, $id_card, $email, $name, $surname, $course, $link);
+		if(!$check){
+			$this->edit($id);
 			return;
 		}
 
 		//reload the page
-		$this->edit($id_card);
+		redirect("students/edit/{$id}");
 	}
 
 	private function user_form($user = NULL){

@@ -35,3 +35,6 @@ css/style.css
 css/style.css
 css/style.min.css
 application/config/routes.php
+application/controllers/Home.php
+application/models/Courses_Model.php
+application/models/Courses_Model.php

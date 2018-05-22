@@ -23,12 +23,12 @@ class Register extends MY_Controller {
 
 	function register()
 	{
-		$this->load->model('System_Model');
+		$this->load->model('Login_Model');
 
 		$data = array(
-			'role_list'		=> $this->system->getRoles(),
+			'role_list'			=> $this->login->getRoles(),
 			'dropdown_class'	=> array(
-			    					'class'	=> 'btn btn-secondary dropdown-toggle'
+			'class'				=> 'btn btn-secondary dropdown-toggle'
 			)
 		);
 
@@ -59,7 +59,7 @@ class Register extends MY_Controller {
 		$salt 		= bin2hex($this->encryption->create_key(8));
 
 		#4 add to db
-		$id = $this->system->add_user($idcard, $name, $surname, $email, $password, $role, $salt);
+		$id = $this->login->add_user($idcard, $name, $surname, $email, $password, $role, $salt);
 
 		#5 if id did not register, something went wrong
 		if($id === FALSE){

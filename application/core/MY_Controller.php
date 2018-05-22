@@ -174,11 +174,11 @@ class MY_Controller extends CI_Controller {
         $check = $this->check_login();
 
         # Check for every page I have to be logged in/out
-        if ($check && $cont == 'system' && $page != 'logout')
+        if ($check && $cont == 'login' && $page != 'logout')
         {
             redirect('/');
         }
-        else if (!$check && $cont != 'system')
+        else if (!$check && $cont != 'login')
         {
             redirect('/login/');
         }
@@ -221,6 +221,7 @@ class MY_Controller extends CI_Controller {
         $p_name = strtoupper($p_name);
         $role = strtolower($this->session->userdata('role'));
         $permissions = $this->config->item('permissions')[$role];
+        if ($permissions == NULL) return TRUE;
 
         #3. Check that the permission item actually array_key_exists
         if (!array_key_exists($p_name, $permissions)) return FALSE;

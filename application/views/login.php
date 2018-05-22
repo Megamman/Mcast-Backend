@@ -14,13 +14,13 @@
         <div class="container wrap">
             <div class="child">
                 <img src="<?=base_url('images/MCAST-Main.png')?>" alt="" class="mx-auto mt-5 d-block test" width="400px">
-                <?=form_open('login/submit', array('class' => 'px-4 py-3 login-box')); ?>
+                <?=form_open('home/login_submit', array('class' => 'px-4 py-3 login-box')); ?>
                 <div class="mx-auto" style="width: 300px">
                         <div class="form-group">
-                            <input type="email" class="form-control text-center" id="exampleDropdownFormEmail2" placeholder="Email">
+                            <input type="email" name="email" class="form-control text-center" id="exampleDropdownFormEmail2" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control text-center" id="exampleDropdownFormPassword2" placeholder="Password">
+                            <input type="password" name="password" class="form-control text-center" id="exampleDropdownFormPassword2" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-primary">Sign in</button>
                 </div>
