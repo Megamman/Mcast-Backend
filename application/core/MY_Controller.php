@@ -14,6 +14,8 @@ class MY_Controller extends CI_Controller {
         //load the parent into its child
         //will add the plugins from autoload
         parent:: __contruct();
+        $this->can_access();
+        $this->config->load('permissions');
 
     }
 
@@ -160,6 +162,70 @@ class MY_Controller extends CI_Controller {
 			)
 		);
 	}
+
+    # Can the user access this page?
+    private function can_access()
+    {
+
+        # Use CodeIgniter's router to get the controller/page
+        $cont = $this->router->class;
+        $page = $this->router->method;
+
+        $check = $this->check_login();
+
+        # Check for every page I have to be logged in/out
+        if ($check && $cont == 'system' && $page != 'logout')
+        {
+            redirect('/');
+        }
+        else if (!$check && $cont != 'system')
+        {
+            redirect('/login/');
+        }
+
+    }
+
+    protected function check_login()
+    {
+        # 1. GEt the current sesion data into variable.
+        $data = $this->session->userdata;
+
+        # 2.Stop here if there is no Session data
+        if (!array_key_exists('session_code', $data))
+        {
+            return FALSE;
+        }
+
+        # 3. if there is no refresh data or an hour has passed check the login data.
+        if (!array_key_exists('refresh', $data) || $data['refresh'] < time())
+        {
+            if ($this->system->check_data($data['id'], $data['email'], $data['session_code']))
+            {
+                $data['refresh'] = time() + 60 * 60;
+                return TRUE;
+            }
+
+            return FALSE;
+        }
+
+        # we don't have to check the data
+        return TRUE;
+    }
+
+    protected function has_permission($p_name)
+    {
+        #1. Stop here if $p_name is a number
+        if(is_int($p_name)) return FALSE;
+
+        #2. Retriece the information we need
+        $p_name = strtoupper($p_name);
+        $role = strtolower($this->session->userdata('role'));
+        $permissions = $this->config->item('permissions')[$role];
+
+        #3. Check that the permission item actually array_key_exists
+        if (!array_key_exists($p_name, $permissions)) return FALSE;
+        return $permissions[$p_name];
+    }
 }
 
 

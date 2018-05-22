@@ -65,5 +65,42 @@ class Home extends MY_Controller {
 
     }
 
+	function nav()
+	{
+
+		#if we're using hard-coded navs, we need the perms
+		$role = strtolower($this->session->userdata('role'));
+
+		$data = array(
+			'nav' 			=> $this->nav_links(),
+			#the below is for hardcoded nav links
+			'permissions'	=> $this->config->item('permissions')[$role]
+		);
+
+		//$this->load->view('nav_page', $data);
+
+	}
+
+	#This will go in MY_Controller
+	protected function nav_links()
+	{
+		$nav = array();
+		$nav['Home']	= '/';
+
+
+		if ($this->has_permission('ACCESS_SECRET_PAGE'))
+		{
+			$nav['Secret'] = 'secret';
+		}
+
+		if ($this->has_permission('Testing'))
+		{
+			$nav['Nonexistent'] = 'fake/page';
+		}
+
+		return $nav;
+	}
+
+
 
 }
