@@ -81,4 +81,24 @@ class Home extends MY_Controller {
 
 	}
 
+	#This will go in MY_Controller
+	/*protected function nav_links()
+	{
+		$nav = array();
+		$nav['Home']	= '/';
+
+
+		if ($this->has_permission('ACCESS_SECRET_PAGE'))
+		{
+			$nav['Secret'] = 'secret';
+		}
+
+		if ($this->has_permission('Testing'))
+		{
+			$nav['Nonexistent'] = 'fake/page';
+		}
+
+		return $nav;
+	}
+	*/
 }

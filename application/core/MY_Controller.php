@@ -221,6 +221,7 @@ class MY_Controller extends CI_Controller {
         $p_name = strtoupper($p_name);
         $role = strtolower($this->session->userdata('role'));
         $permissions = $this->config->item('permissions')[$role];
+        if ($permissions == NULL) return TRUE;
 
         #3. Check that the permission item actually array_key_exists
         if (!array_key_exists($p_name, $permissions)) return FALSE;
