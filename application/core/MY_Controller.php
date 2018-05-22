@@ -174,11 +174,11 @@ class MY_Controller extends CI_Controller {
         $check = $this->check_login();
 
         # Check for every page I have to be logged in/out
-        if ($check && $cont == 'system' && $page != 'logout')
+        if ($check && $cont == 'login' && $page != 'logout')
         {
             redirect('/');
         }
-        else if (!$check && $cont != 'system')
+        else if (!$check && $cont != 'login')
         {
             redirect('/login/');
         }
