@@ -91,16 +91,17 @@ class Courses_Model extends CI_Model {
                         ->join('tbl_users',     'tbl_users.tbl_login_id_login   = tbl_login.id_login',        'left')
                         ->join('tbl_std',       'tbl_std.tbl_login_id_login     = tbl_login.id_login',        'left')
                         ->join('tbl_courses',   'tbl_std.tbl_courses_course_id  = tbl_courses.course_id',     'left')
-                        ->where('tbl_login.user_id', $id)
+                        ->where('tbl_login.id_login', $id)
                         ->get('tbl_login')
                         ->row_array();
 
 
     }
 
-    public function update_user($id_card, $email, $name, $surname, $course, $link){
+    public function update_user($login_id, $id_card, $email, $name, $surname, $course, $link){
 
 
+        $flag = FALSE;
         $salt 		= bin2hex($this->encryption->create_key(8));
 
         //an insert query
@@ -113,34 +114,35 @@ class Courses_Model extends CI_Model {
             'salt_login'            => strrev($salt)
         );
 
+        $this->db   ->where('id_login', $login_id)
+                    ->update('tbl_login', $dataLogin);
 
-        
-        $this->db-> where('user_id', $id_card)
-                    update('tbl_login', $dataLogin);
-        //gives us whatever the PK value is last
-        //return $this->db->insert_id();
-        $id = $this->db->insert_id();
+        if (!$flag)
+            $flag = $this->db->affected_rows() == 1;
 
 
         $dataUser = array(
-            'tbl_login_id_login'    => $id,
             'user_name'             => $name,
             'user_surname'          => $surname
         );
-        $this->db-> where('tbl_login_id_login', $id)
-                    update('tbl_users', $dataUser);
+        $this->db   ->where('tbl_login_id_login', $login_id)
+                    ->update('tbl_users', $dataUser);
 
-
+        if (!$flag)
+            $flag = $this->db->affected_rows() == 1;
 
 
         $data = array(
-            'tbl_login_id_login'    => $id,
             'std_link'              => $link,
             'tbl_courses_course_id' => $course
         );
-        $this->db-> where('tbl_login_id_login', $id)
-                    update('tbl_std', $data);
+        $this->db   -> where('tbl_login_id_login', $login_id)
+                    ->update('tbl_std', $data);
 
+        if (!$flag)
+            $flag = $this->db->affected_rows() == 1;
+
+        return $flag;
     }
 
 
