@@ -9,7 +9,7 @@ class Jobs extends MY_Controller {
 		// without this, we won't  be able to...
 		// this->build our pages.
 		parent::__construct();
-		$this->has_permission('ACCESS_LECTURER') or show_404();
+		//$this->has_permission('ACCESS_LECTURER') or show_404();
 
 	}
 
@@ -69,6 +69,32 @@ class Jobs extends MY_Controller {
 		redirect('jobs');
 
 	}
+
+	public function submit_form()
+	{
+		switch ($this->input->post('button'))
+		{
+			case 'delete':
+				$this->delete_job();
+				break;
+
+			//case 'update':
+				//$this->update();
+				//break;
+		}
+	}
+
+	public function delete_job(){
+		$this->load->model('vacancy_model');
+
+		$job 	= $this->input->post('job');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
+
+		$this->vacancy_model->delete_job($job);
+
+		redirect('jobs');
+
+	}
+
 
 
 

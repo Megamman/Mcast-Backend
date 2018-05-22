@@ -19,6 +19,7 @@
 
     <?=form_open('students/submit_form')?>
         <button type="submit" name="button" value="delete">Delete</button>
+        <button type="submit" name="button" value="update">Update</button>
         <table class="table table-sm">
             <thead>
                 <tr class="table-active">
@@ -43,6 +44,7 @@
                             <td>    <?=$user['course_name'];?>    </td>
                             <td>    <?=$user['course_lvl'];?>    </td>
                             <td>    <?=$user['std_link'];?>    </td>
+                            <td><?=anchor("students/edit/{$user['user_id']}", "Edit");?></td> <!-- anchor is the a href. -->
                         </tr>
                 <?php endforeach; ?>
             </tbody>

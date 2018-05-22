@@ -27,7 +27,11 @@ class Vacancy_Model extends CI_Model {
                         ->get('tbl_jobs');
     }
 
+    public function delete_job($job){
+        $this->db->where_in('job_id', $job)->delete('tbl_jobs');
+    }
 
-    
+
+
 
 }

@@ -9,7 +9,7 @@ class Lectures extends MY_Controller {
 		// without this, we won't  be able to...
 		// this->build our pages.
 		parent::__construct();
-		$this->has_permission('ACCESS_LECTURER') or show_404();
+		//$this->has_permission('ACCESS_LECTURER') or show_404();
 
 	}
 
@@ -81,6 +81,28 @@ class Lectures extends MY_Controller {
 		}
 
 		redirect ('lectures');
+	}
+
+	public function submit_form()
+	{
+		switch ($this->input->post('button'))
+		{
+			case 'delete':
+				$this->delete_lecture();
+				break;
+
+			//case 'update':
+				//$this->update();
+				//break;
+		}
+	}
+
+
+	public function delete_lecture(){
+		$this->load->model('lectures_model');
+		$lecture 	= $this->input->post('student');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
+		$this->lectures_model->delete_lecture($lecture);
+		redirect('lectures');
 	}
 
 
