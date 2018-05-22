@@ -34,4 +34,8 @@ class News_Model extends CI_Model {
         $this->db->update('tbl_news', $dataNews);
     }
 
+    public function delete_news($new){
+        $this->db->where_in('news_id', $new)->delete('tbl_news');
+    }
+
 }
