@@ -19,7 +19,6 @@
 
     <?=form_open('students/submit_form')?>
         <button type="submit" name="button" value="delete">Delete</button>
-
         <table class="table table-sm">
             <thead>
                 <tr class="table-active">

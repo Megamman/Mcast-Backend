@@ -13,13 +13,17 @@ class Forms_Model extends CI_Model {
         $this->db->insert('tbl_forms', $dataForm);
     }
 
-    
+
 
     public function get_forms(){
         return $this->db->select('  form_id,
                                     form_name,
                                     form_desc')
                         ->get('tbl_forms');
+    }
+
+    public function delete_form($form){
+        $this->db->where_in('form_id', $form)->delete('tbl_forms');
     }
 
 }

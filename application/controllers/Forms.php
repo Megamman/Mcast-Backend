@@ -77,4 +77,31 @@ class Forms extends MY_Controller {
 
 	}
 
+
+
+	public function submit_form()
+	{
+		switch ($this->input->post('button'))
+		{
+			case 'delete':
+				$this->delete_form();
+				break;
+
+			//case 'update':
+				//$this->update();
+				//break;
+		}
+	}
+
+	public function delete_form(){
+		$this->load->model('forms_model');
+
+		$form 	= $this->input->post('form');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
+
+		$this->forms_model->delete_form($form);
+
+		redirect('forms');
+
+	}
+
 }
