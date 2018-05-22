@@ -98,6 +98,45 @@ class Courses_Model extends CI_Model {
 
     }
 
+    public function update_user($id_card, $email, $name, $surname, $course, $link){
+
+
+        $salt 		= bin2hex($this->encryption->create_key(8));
+
+        //an insert query
+        //inset into tbl_users(cols) values (cols)
+
+        $dataLogin = array(
+            'user_id'               => $id_card,
+            'email_login'           => $email,
+            'pass_login'            => password_hash($salt.$id_card, CRYPT_BLOWFISH),
+            'salt_login'            => strrev($salt)
+        );
+        $this->db-> where('user_id', $id_card);
+                    insert('tbl_login', $dataLogin);
+        //gives us whatever the PK value is last
+        //return $this->db->insert_id();
+        $id = $this->db->insert_id();
+
+        $dataUser = array(
+            'tbl_login_id_login'    => $id,
+            'user_name'             => $name,
+            'user_surname'          => $surname
+        );
+        $this->db-> where('tbl_login_id_login', $id);
+                    insert('tbl_users', $dataUser);
+
+
+        $data = array(
+            'tbl_login_id_login'    => $id,
+            'std_link'                  => $link,
+            'tbl_courses_course_id' => $course
+        );
+        $this->db-> where('tbl_login_id_login', $id);
+                    insert('tbl_std', $data);
+
+    }
+
 
 
 
