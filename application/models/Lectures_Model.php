@@ -36,6 +36,7 @@ class Lectures_Model extends CI_Model {
         return $this->db->select('  tbl_lects.lect_end,
 
                                     tbl_login.email_login,
+                                    tbl_lects.tbl_login_id_login,
 
                                     tbl_users.user_name')
 
@@ -46,9 +47,9 @@ class Lectures_Model extends CI_Model {
 
     }
 
-    /*public function delete_lecture($lecture){
-        $this->db->where_in('id_login', $lecture)->delete('tbl_lects');
-    }*/
+    public function delete_lecture($lecture){
+        $this->db->where_in('tbl_login_id_login', $lecture)->delete('tbl_lects');
+    }
 
 
 
