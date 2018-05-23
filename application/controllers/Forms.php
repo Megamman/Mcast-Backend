@@ -99,7 +99,13 @@ class Forms extends MY_Controller {
 		$this->load->model('forms_model');
 
 		$form 	= $this->input->post('form');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
-
+		$names = $this->forms_model->get_titles($form);
+		foreach($names as $name)
+		{
+			$title = urlencode($name['form_name']);
+			$files = glob("uploads/forms/{$title}.*");
+			foreach ($files as $file) unlink($file);
+		}
 		$this->forms_model->delete_form($form);
 
 		redirect('forms');

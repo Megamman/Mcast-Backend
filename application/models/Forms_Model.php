@@ -26,4 +26,7 @@ class Forms_Model extends CI_Model {
         $this->db->where_in('form_id', $form)->delete('tbl_forms');
     }
 
+    public function get_titles($ids){
+        return $this->db->select('form_name')->where_in('form_id', $ids)->get('tbl_forms')->result_array();
+    }
 }
