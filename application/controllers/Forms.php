@@ -89,9 +89,9 @@ class Forms extends MY_Controller {
 				$this->delete_form();
 				break;
 
-			//case 'update':
-				//$this->update();
-				//break;
+			case 'update':
+				$this->update();
+				break;
 		}
 	}
 
@@ -111,5 +111,115 @@ class Forms extends MY_Controller {
 		redirect('forms');
 
 	}
+
+
+	public function edit($id = NULL, $extra = NULL){
+
+		if ($id === 'submit')
+		{
+			$this->edit_submit($extra);
+			return;
+		}
+
+		$this->load->model('forms_model');
+		$user = $this->forms_model->get_user($id);
+
+
+		if($user == NULL){
+			show_404();
+			return;
+		}
+
+		// load the form helper to get the function isndie the file otherwise known as a plugin
+		$this->load->helper('form');
+		// this array will contain all the inputs we will need
+		$file = glob("uploads/forms/{$user['form_name']}.*");
+		if (count($file) > 0)
+		{
+			$file = $file[0];
+		}
+		else
+		{
+			$file = 'img-not-found.png';
+		}
+
+		$data = array(
+			'properties'	=> array(
+								'action'	=> "forms/edit/submit/{$id}",
+								'hidden'	=> 	array(	'form_id' => $user['form_id'],
+														'old_name' => $user['form_name']
+							)
+			),
+			'form' => $this->user_form($user),
+			'image' => $file
+		);
+
+
+			//the page itself
+			$this->build('forms/update', $data);
+
+	}
+
+	private function edit_submit($id){
+
+		//load the form_validation library
+		$this->load->library('form_validation');
+		//load the users_model
+		$this->load->model('forms_model');
+
+		//this instead of
+
+		if ($this->fv->run('add_forms') === FALSE)
+		{
+			echo validation_errors();
+			return;
+		}
+
+		$id 		= $this->input->post('form_id');
+		$name     	= $this->input->post('form_name');
+		$desc    	= $this->input->post('form_desc');
+		$oldName    = $this->input->post('old_name');
+
+		//update the user
+		$check = $this->forms_model->update_form($id, $name, $desc);
+		if(!$check){
+			$this->edit($id);
+			return;
+		}
+
+		// rename the image file
+
+		//reload the page
+		redirect("forms/edit/{$id}");
+	}
+
+	private function user_form($form = NULL){
+
+		if($form == NULL){
+			$form = array (
+				'form_name' 		=> NULL,
+				'form_desc' 		=> NULL
+			);
+		}
+		return array(
+			'Form Name' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'form_name',
+				'placeholder' 		=> 'Sick Form',
+				'id' 				=> 'sickForm',
+				'required' 			=> TRUE,
+				'value'				=> set_value('form_name', $form['form_name'])
+			),
+			'Form Desc' => array(
+				'type' 				=> 'text',
+				'name' 				=> 'form_desc',
+				'placeholder' 		=> 'Description here',
+				'id' 				=> 'descId',
+				'required' 			=> TRUE,
+				'value'				=> set_value('form_desc',$form['form_desc'])
+			)
+		);
+	}
+
 
 }
