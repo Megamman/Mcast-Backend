@@ -30,7 +30,7 @@
                         <a href="<?=site_url('register')?>" class="nav-link">Register</a>
                     </li>
                     <li class="mr-auto">
-                        <?=anchor('logout', 'Logout');?>
+                        <?=anchor('logout', 'Logout', 'class = nav-link');?>
                     </li>
                 </ul>
             </div>

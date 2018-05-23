@@ -8,17 +8,26 @@
                     <?php if ($link['icon'] != null): ?>
                         <i class="fas <?=$link['icon']?> fa-sm "></i>
                     <?php endif; ?>
+                </a>
+            <?php endforeach; ?>
 
+                <div class="btn btn-link btn-sm mr-1">
+                    <?=anchor('form_delete','delete', 'class = btn btn-link btn-sm');?>
+                </div>
+
+            <?php foreach ($links as $link): ?>
+                <a href="<?=site_url($link['link'])?>" class="btn btn-link btn-sm mr-1 mt-2" role="button">
                     <?php if ($link['caption'] != null): ?>
                         <?=$link['caption']?>
                     <?php endif; ?>
                 </a>
             <?php endforeach; ?>
+
         </div>
     </div>
 
     <?=form_open('forms/submit_form')?>
-        <button type="submit" name="button" value="delete">Delete</button>
+    <button type="submit" name="button" value="delete"class="btn btn-link btn-sm"> <i class="fas fa-trash-alt"></i></button>
         <table class="table table-sm">
         <thead>
             <tr class="table-active">

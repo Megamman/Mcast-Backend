@@ -150,11 +150,6 @@ class MY_Controller extends CI_Controller {
 				'link'		=> 'forms/add'
 			),
 			array(
-				'icon'		=> 'fa-trash-alt',
-				'caption'	=> NULL,
-				'link'		=> 'forms/forms'
-			),
-			array(
 				'icon'		=> NULL,
 				'caption'	=> 'Update',
 				'link'		=> 'forms/update'

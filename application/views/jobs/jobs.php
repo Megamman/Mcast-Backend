@@ -18,7 +18,7 @@
     </div>
 
     <?=form_open('jobs/submit_form')?>
-        <button type="submit" name="button" value="delete">Delete</button>
+        <button type="submit" name="button" value="delete"class="btn btn-link btn-sm"> <i class="fas fa-trash-alt"></i></button>
         <table class="table table-sm">
         <thead>
             <tr class="table-active">
