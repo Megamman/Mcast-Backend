@@ -70,4 +70,23 @@ class Register extends MY_Controller {
 		redirect ('students');
     }
 
+	public function logout()
+	{
+		# 1. Remove the login data from the database
+		$data = $this->session->userdata;
+		$this->login->delete_session($data['id_login'], $data['u_persistence']);
+
+		# 2. Remove the information from this session
+		$this->session->unset_userdata(array(
+			'id_login', 'email_login', 'user_name', 'user_surname', 'u_persistence'
+		));
+
+		# 3. Redirect the user home.
+		redirect('/');
+	}
+
+
+
+
+
 }
