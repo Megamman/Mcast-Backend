@@ -96,15 +96,16 @@ class News extends MY_Controller {
 
 		$new 	= $this->input->post('news');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
 
+		$names = $this->news_model->get_titles($new);
+		foreach($names as $name)
+		{
+			$title = urlencode($name['news_title']);
+			$files = glob("uploads/news/{$title}.*");
+			foreach ($files as $file) unlink($file);
+		}
+
 		$this->news_model->delete_news($new);
 
-
-
-
-		//to ask sir how to remove file from server which matches the name of the news
-		$files = glob("uploads/news/{$name}.*");
-
-		foreach ($files as $file) unlink($file);
 
 		redirect('news');
 

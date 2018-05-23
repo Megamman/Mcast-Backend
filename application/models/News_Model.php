@@ -38,4 +38,8 @@ class News_Model extends CI_Model {
         $this->db->where_in('news_id', $new)->delete('tbl_news');
     }
 
+    public function get_titles($ids){
+        return $this->db->select('news_title')->where_in('news_id', $ids)->get('tbl_news')->result_array();
+    }
+
 }

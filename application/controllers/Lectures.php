@@ -100,7 +100,7 @@ class Lectures extends MY_Controller {
 
 	public function delete_lecture(){
 		$this->load->model('lectures_model');
-		$lecture 	= $this->input->post('student');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
+		$lecture 	= $this->input->post('lect');// TO GET ARRAY FROM SELECT BOX student[]<-- name of checkbox
 		$this->lectures_model->delete_lecture($lecture);
 		redirect('lectures');
 	}

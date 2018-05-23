@@ -48,6 +48,8 @@ class Lectures_Model extends CI_Model {
     }
 
     public function delete_lecture($lecture){
+        var_dump($lecture['tbl_login_id_login']);
+        var_dump($lecture);
         $this->db->where_in('tbl_login_id_login', $lecture)->delete('tbl_lects');
     }
 

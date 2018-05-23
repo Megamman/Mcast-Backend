@@ -31,7 +31,7 @@
         <tbody>
             <?php foreach($lectures->result_array() as $lect): ?>
             <tr>
-                <td><input type="checkbox" name="lect[]" value=" $lectures['tbl_login_id_login']?>"></td>
+                <td><input type="checkbox" name="lect[]" value="<?=$lect['tbl_login_id_login']?>"></td>
                 <td>    <?=$lect['user_name'];?>                     </td>
                 <td>    <?=$lect['email_login'];?>                   </td>
                 <td>    <?=date('d M Y', $lect['lect_end']);?>        </td>
