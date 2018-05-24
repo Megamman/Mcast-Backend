@@ -3,16 +3,16 @@
 </div>
 
 <div class="container">
-    <form>
+    <?=form_open($properties['action'], NULL, $properties['hidden'])?>
+    <?php foreach ($form as $key => $input):?>
         <div class="form-group">
-            <label for="exampleInputJob">Job Title</label>
-            <input type="text" class="form-control" id="exampleInputJob" aria-describedby="jobHelp" placeholder="Enter Job Name">
+            <?=form_error($input['name']);?>
+            <?=form_label($key);?>
+            <?=form_input($input);?>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Job Description</label>
-            <textarea class="form-control" id="jobDesc" name="jobDesc" placeholder="Enter Description" rows="3"></textarea>
-         </div>
+    <?php endforeach;?>
+        
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+         <?=form_submit(null,"Submit");?>
+       <?=form_close();?>
+   </div>

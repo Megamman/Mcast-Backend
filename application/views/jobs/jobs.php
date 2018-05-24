@@ -28,6 +28,8 @@
                 <th scope="col">Job Title</th>
                 <th scope="col">Job Description</th>
                 <th scope="col">End Date</th>
+                <th scope="col"></th>
+
 
             </tr>
         </thead>
@@ -37,7 +39,9 @@
                 <td>    <input type="checkbox" name="job[]" value="<?=$job['job_id']?>">    </td>
                 <td>    <?=$job['job_name'];?>                                              </td>
                 <td>    <?=$job['job_desc'];?>                                              </td>
-                <td>    <?=date('d M Y', $job['job_end']);?>                                               </td>
+                <td>    <?=date('d M Y', $job['job_end']);?>                                </td>
+                <td><?=anchor("jobs/edit/{$job['job_id']}", "Edit");?></td> <!-- anchor is the a href. -->
+
             </tr>
             <?php endforeach; ?>
 

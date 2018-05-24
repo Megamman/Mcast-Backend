@@ -12,12 +12,12 @@
             <label for="exampleFormControlTextarea1">Form Description</label>
             <textarea class="form-control" id="formDesc" name="form_desc" placeholder="Enter Description" rows="3"></textarea>
          </div>
+         <div class="form-group">
+             <label for="exampleInputStartDate">Form</label>
+             <input type="file" class="form-control" id="exampleInputFormFile" aria-describedby="FormHelp" name="userfile" placeholder="Upload From File">
+         </div>
 
 
-        <div class="form-group">
-            <label for="exampleInputStartDate">Form</label>
-            <input type="file" class="form-control" id="exampleInputFormFile" aria-describedby="FormHelp" name="userfile" placeholder="Upload From File">
-        </div>
 
 
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -187,7 +187,23 @@ class Forms extends MY_Controller {
 			return;
 		}
 
-		// rename the image file
+		chmod('uploads', 0777);
+		chmod('uploads/forms', 0777);
+
+		$config['upload_path']          = './uploads/forms/';
+		$config['file_name']          	= urlencode($name);
+	   	$config['allowed_types']        = 'jpg|png|pdf';
+	   	$config['max_size']             = 10000;
+		$this->load->model('forms_model');
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('userfile'))
+		{
+				$error = array('error' => $this->upload->display_errors());
+
+				$this->load->view('forms', $error);
+		}
 
 		//reload the page
 		redirect("forms/edit/{$id}");

@@ -32,6 +32,40 @@ class Vacancy_Model extends CI_Model {
     }
 
 
+    public function get_vacancy_by_id($id){
+        return $this->db->select('  job_id,
+                                    job_name,
+                                    job_desc,
+                                    job_end')
+                        ->get('tbl_jobs')
+                        ->row_array();
+    }
+
+    public function update_form($job_id, $jobName, $jobDesc, $jobEndDate){
+
+
+        $flag = FALSE;
+
+        //an insert query
+        //inset into tbl_users(cols) values (cols)
+
+        $data = array(
+            'job_name'              => $jobName,
+            'job_desc'              => $jobDesc,
+            'job_end'               => strtotime($jobEndDate)
+        );
+
+        $this->db   ->where('job_id', $job_id)
+                    ->update('tbl_jobs', $data);
+
+        if (!$flag)
+            $flag = $this->db->affected_rows() == 1;
+
+        return $flag;
+    }
+
+
+
 
 
 }

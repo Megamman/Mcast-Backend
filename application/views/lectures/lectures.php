@@ -22,7 +22,7 @@
         <table class="table table-sm">
         <thead>
             <tr class="table-active">
-
+                <th><input type="checkbox" name="check"  /></th>
                 <th scope="col">Full Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">End</th>
