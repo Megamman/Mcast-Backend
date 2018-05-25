@@ -42,6 +42,8 @@
                 <td> <?=$news['news_title'];?> </td>
                 <td> <?=$news['news_desc'];?> </td>
                 <td> <a href="<?=base_url($files)?>" target="_blank">View File</a></td>
+                <td><?=anchor("news/edit/{$news['news_id']}", "Edit");?></td> <!-- anchor is the a href. -->
+
             </tr>
             <?php endforeach; ?>
         </tbody>

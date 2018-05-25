@@ -42,4 +42,34 @@ class News_Model extends CI_Model {
         return $this->db->select('news_title')->where_in('news_id', $ids)->get('tbl_news')->result_array();
     }
 
+    public function get_news_by_id($id){
+        return $this->db->select('  news_id,
+                                    news_title,
+                                    news_desc')
+                        ->where('news_id', $id)
+                        ->get('tbl_news')
+                        ->row_array();
+
+    }
+
+    public function update_news($id, $name, $desc){
+
+        $flag = FALSE;
+
+        $data = array(
+            'news_title'                 => $name,
+            'news_desc'                 => $desc
+
+        );
+
+        $this->db   ->where('news_id', $id)
+                    ->update('tbl_news', $data);
+
+        if (!$flag)
+            $flag = $this->db->affected_rows() == 1;
+
+        return $flag;
+    }
+
+
 }

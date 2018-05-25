@@ -44,7 +44,6 @@ class Forms_Model extends CI_Model {
     public function update_form($id, $name, $desc){
 
         $flag = FALSE;
-        $salt 		= bin2hex($this->encryption->create_key(8));
 
         //an insert query
         //inset into tbl_users(cols) values (cols)

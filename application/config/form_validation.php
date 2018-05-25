@@ -125,13 +125,13 @@ $config = array(
     ),
     'add_news'   => array(
         array(
-            'field' => 'newsTitle',
-            'label' => 'NewsTitle',
+            'field' => 'news_title',
+            'label' => 'news_title',
             'rules' => 'required'
         ),
         array(
-            'field' => 'newsDecs',
-            'label' => 'NewsDecs',
+            'field' => 'news_desc',
+            'label' => 'news_desc',
             'rules' => 'required'
         )
     ),
