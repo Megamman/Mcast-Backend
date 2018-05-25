@@ -109,32 +109,32 @@ class Students extends MY_Controller {
 			return;
 		}
 
-	$this->load->model('courses_model');
-	$user = $this->courses_model->get_user($id);
+		$this->load->model('courses_model');
+		$user = $this->courses_model->get_user($id);
 
 
-	if($user == NULL){
-		show_404();
-		return;
-	}
+		if($user == NULL){
+			show_404();
+			return;
+		}
 
-	// load the form helper to get the function isndie the file otherwise known as a plugin
-	$this->load->helper('form');
-	// this array will contain all the inputs we will need
-	$data = array(
-		'properties'	=> array(
-							'action'	=> "students/edit/submit/{$id}",
-							'hidden'	=> 	array('user_id' => $user['user_id']
-						)
-		),
-		'form' => $this->user_form($user),
-		'course_list'		=> $this->courses_model->all(),
-		'dropdown_class'	=> array(
-								'class'	=> 'btn btn-secondary dropdown-toggle'
+		// load the form helper to get the function isndie the file otherwise known as a plugin
+		$this->load->helper('form');
+		// this array will contain all the inputs we will need
+		$data = array(
+			'properties'	=> array(
+								'action'	=> "students/edit/submit/{$id}",
+								'hidden'	=> 	array('user_id' => $user['user_id']
 							)
-	);
-	//the page itself
-	$this->build('student/update', $data);
+			),
+			'form' => $this->user_form($user),
+			'course_list'		=> $this->courses_model->all(),
+			'dropdown_class'	=> array(
+									'class'	=> 'btn btn-secondary dropdown-toggle'
+								)
+		);
+			//the page itself
+			$this->build('student/update', $data);
 
 	}
 

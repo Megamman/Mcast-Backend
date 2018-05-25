@@ -3,19 +3,19 @@
 </div>
 
 <div class="container">
-    <form>
+    <?=form_open_multipart($properties['action'], NULL, $properties['hidden'])?>
+    <?php foreach ($form as $key => $input):?>
         <div class="form-group">
-            <label for="exampleInputName">Form Name</label>
-            <input type="text" class="form-control" id="formName" aria-describedby="formName" name="formnNme" placeholder="Upload Form Name">
+            <?=form_error($input['name']);?>
+            <?=form_label($key);?>
+            <?=form_input($input);?>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Form Description</label>
-            <textarea class="form-control" id="formDesc" name="formDesc" placeholder="Enter Description" rows="3"></textarea>
-         </div>
-        <div class="form-group">
-            <label for="exampleInputStartDate">Form</label>
-            <input type="file" class="form-control" id="exampleInputFormFile" aria-describedby="FormHelp" placeholder="Upload From File">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <?php endforeach;?>
+    <div class="form-group">
+        <label for="exampleInputStartDate">Form</label>
+        <input type="file" class="form-control" id="exampleInputFormFile" aria-describedby="FormHelp" name="userfile" placeholder="Upload From File">
+    </div>
+
+        <?=form_submit(null,"Submit");?>
+        <?=form_close();?>
 </div>

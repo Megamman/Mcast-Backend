@@ -52,6 +52,8 @@
                     <td>    <?=$form['form_name'];?>                                                                        </td>
                     <td>    <?=$form['form_desc'];?>                                                                        </td>
                     <td>    <a href="<?=base_url($files)?>" target="_blank">View File</a></td>
+                    <td><?=anchor("forms/edit/{$form['form_id']}", "Edit");?></td> 
+
 
                 </tr>
             <?php endforeach; ?>
