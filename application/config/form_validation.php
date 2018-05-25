@@ -76,7 +76,7 @@ $config = array(
         array(
             'field' => 'link',
             'label' => 'Link',
-            'rules' => 'required'
+            'rules' => ''
         )
     ),
     'add_vacancy'   => array(
