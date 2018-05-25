@@ -194,7 +194,7 @@ class MY_Controller extends CI_Controller {
         # 3. if there is no refresh data or an hour has passed check the login data.
         if (!array_key_exists('refresh', $data) || $data['refresh'] < time())
         {
-            if ($this->login->check_data($data['id'], $data['email'], $data['session_code']))
+            if ($this->login->check_data($data['id_login'], $data['email_login'], $data['u_persistence']))
             {
                 $data['refresh'] = time() + 60 * 60;
                 return TRUE;

@@ -49,8 +49,8 @@ class News extends MY_Controller {
             return;
         }
 
-		$title			= $this->input->post('newsTitle');
-		$desc			= $this->input->post('newsDecs');
+		$title			= $this->input->post('news_title');
+		$desc			= $this->input->post('news_desc');
 
 		chmod('uploads', 0777);
 		chmod('uploads/news', 0777);
@@ -58,7 +58,7 @@ class News extends MY_Controller {
 		$config['upload_path']          = './uploads/news/';
 		$config['file_name']          	= $title;
 	   	$config['allowed_types']        = 'jpg|png|pdf';
-	   	$config['max_size']             = 10000;
+	   	$config['max_size']             = 10240;
 		$this->load->model('news_model');
 
 		$this->news_model->add_news($title, $desc);
@@ -68,7 +68,7 @@ class News extends MY_Controller {
 		{
 				$error = array('error' => $this->upload->display_errors());
 
-				$this->load->view('news', $error);
+				var_dump($error); exit;
 		}
 
 		echo "The News was added";

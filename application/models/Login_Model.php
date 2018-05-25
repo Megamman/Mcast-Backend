@@ -122,7 +122,7 @@ class Login_Model extends CI_Model {
         );
 
         return $this->db->select('tbl_login.id_login')
-                        ->join('tbl_login_info', 'tbl_login_info.tbl_login_id_login' == 'tbl_login.id_login', 'left')
+                        ->join('tbl_login_info', 'tbl_login_info.tbl_login_id_login = tbl_login.id_login', 'left')
                         ->get_where('tbl_login', $data)
                         ->num_rows() == 1;
     }

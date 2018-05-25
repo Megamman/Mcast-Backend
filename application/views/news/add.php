@@ -6,11 +6,11 @@
     <?=form_open_multipart('news/add_news', array('class' => '')); ?>
         <div class="form-group">
             <label for="exampleInputNews">News Title</label>
-            <input type="text" class="form-control" name="newsTitle" id="exampleInputNews" placeholder="Enter News Title">
+            <input type="text" class="form-control" name="news_title" id="exampleInputNews" placeholder="Enter News Title">
         </div>
         <div class="form-group">
             <label for="exampleInputDescription">Description</label>
-            <textarea class="form-control" name="newsDecs" id="exampleInputDescription" placeholder="Enter Description" rows="3"></textarea>
+            <textarea class="form-control" name="news_desc" id="exampleInputDescription" placeholder="Enter Description" rows="3"></textarea>
         </div>
         <div class="form-group">
             <label for="exampleInputNewsImage">Image</label>
